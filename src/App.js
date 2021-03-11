@@ -1,63 +1,67 @@
 import './App.css';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
-// import About from './components/About';
+import About from './components/About';
+// import Card from './components/Card';
+import Details from './components/Details';
+
 
 function App() {
 
-	// const [cards, setCards] = useState([]);
-  // const [stock, setStock] = useState(null);
+  const [data, setData] = useState(null);
+	// const [asset, setAsset] = useState(null);
 
-//   stock's last sale price and whatver other details
-//   const urlBase = 'https://cloud.iexapis.com/';
-//   const version = 'stable/';
-//   const endpointPath1 = 'stock/';
-//   const endpointPath2 = '/financials';
-//   const queryStringParameters = 'token='
-//   const apiKey = 'pk_e38fb94536f34aa784984e2536414148';
-//   const filters = '&period={}'
+  const urlBase = 'https://api.opensea.io/api/v1';
+  const route = '/assets';   // or bundles
+  let direction = 'desc'
+  let offset = 0;
+  let limit = 50;
+  // orderBy = 
 
-  // useEffect(() => {
-  //   const symbol = match.params.symbol;
-  //       getData(symbol);
-  // }, []);
+  const url = `${urlBase}${route}?order_direction=${direction}&offset=${offset}&limit=${limit}`
 
-//   function getData(symb) {
-//   // fetch(`${urlBase}${version}${endpointPath1}${endpointPath2}${queryStringParameters}${apiKey}`)
-//       fetch(`https://cloud.iexapis.com/stable/stock/${symb}/quote?token=${apiKey}`)
-//     .then((res) => res.json())
-//     .then((res) => {
-//       setStock(res);
-//     })
-//     .catch(console.error);
-//   }
+    useEffect(() => {
+      getData();
+    }, []);
 
+    function getData() {
 
+      fetch(`https://api.opensea.io/api/v1/assets?order_direction=${direction}&offset=${offset}&limit=${limit}`)
+        .then((res) => res.json())
+        .then((res) => {
+          const tempData = res.assets;
+          setData(tempData);
+        })
+        .catch(console.error);
+    }
 
-
-
-
-
-
-
+    if (!data) {
+      return(
+        // TODO: Add CSS animation / spinner
+        <h2>WAIT</h2>
+      )
+    }
 
   return (
-        <>
-        <header>
-            <Navbar className='navbar' />
-        </header>
+    //#region [Violet]
+		<>
+			<header>
+				<Navbar className='navbar' />
+			</header>
 
-        <main>
-            <Switch>
-                <Route exact path='/' component={Gallery} />
-                {/* <Route exact path='/about' component={} /> */}
-                <Route exact path='/assets' ><Redirect to="/" /></Route> 
-                <Route path='/assets/:id' component={(routerProps) => <Gallery data={data} match={routerProps.match} />} />   
-            </Switch>
-        </main>
-      </>
-  );
+			<main>
+        <Switch>
+                <Route exact path='/' component={() => <Gallery data={data} />} />   
+                <Route exact path='/about' component={About} />
+                <Route path='/assets/:id' component={(routerProps) => <Details data={data} match={routerProps.match} />} />   
+        </Switch>
+			</main>
+
+		</>
+	);
 }
 
 export default App;
+//#endregion
