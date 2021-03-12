@@ -1,46 +1,29 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
 import About from './components/About';
-// import Card from './components/Card';
-import Details from './components/Details';
-
+import AssetView from './components/AssetView';
+import Api, { DIRECTION } from './utils/api';
 
 function App() {
 
   const [data, setData] = useState(null);
-	// const [asset, setAsset] = useState(null);
+  const [offset, setOffset] = useState(8050);
+  const [limit, setLimit] = useState(50);
 
-  const urlBase = 'https://api.opensea.io/api/v1';
-  const route = '/assets';   // or bundles
-  let direction = 'desc'
-  let offset = 0;
-  let limit = 50;
-  // orderBy = 
-
-  const url = `${urlBase}${route}?order_direction=${direction}&offset=${offset}&limit=${limit}`
-
-    useEffect(() => {
-      getData();
-    }, []);
-
-    function getData() {
-
-      fetch(`https://api.opensea.io/api/v1/assets?order_direction=${direction}&offset=${offset}&limit=${limit}`)
-        .then((res) => res.json())
-        .then((res) => {
-          const tempData = res.assets;
-          setData(tempData);
-        })
-        .catch(console.error);
-    }
+  useEffect(() => {
+    const api = new Api();
+    api.getAssets(DIRECTION.desc, offset, limit)
+    .then(setData)
+    .catch(console.error)
+  }, [offset, limit])
 
     if (!data) {
       return(
         // TODO: Add CSS animation / spinner
-        <h2>WAIT</h2>
+        <h2>LOADING ASSETS</h2>
       )
     }
 
@@ -53,9 +36,10 @@ function App() {
 
 			<main>
         <Switch>
-                <Route exact path='/' component={() => <Gallery data={data} />} />   
+                <Route exact path='/' component={() => <Gallery data={data} />} />
+                <Route exact path='/gallery' component={() => <Gallery data={data} />} />      
                 <Route exact path='/about' component={About} />
-                <Route path='/assets/:id' component={(routerProps) => <Details data={data} match={routerProps.match} />} />   
+                <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />   
         </Switch>
 			</main>
 

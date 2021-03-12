@@ -19,16 +19,14 @@ export default function Card( { asset } ) {
 		<div className='card'>
 				<div>
 				<Link to={`/assets/${asset.id}`} key={asset.id}>LINK</Link>
-					<div className='img-container'>
-						<img src={asset.image_thumbnail_url} alt={asset.name} />
+					<div>
+						<img src={asset.thumbnailUrl} alt={asset.name} />
 					</div>
-	
-					{/* {console.log(`cardData2: ${data.assets[0].name}`)} */}
-				
+
 					<div className='details'>
 						<h2>{asset.name}</h2>
-						{/* <p>artist: {asset.creator.user.username}</p> */}
 						<p>{asset.description}</p>
+						<p>{asset.price}</p>
 						<p>id: {asset.id}</p>
 					</div>
 				</div>
