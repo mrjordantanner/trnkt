@@ -11,9 +11,6 @@ class Asset {
         this.imgUrl = asset.image_url;
         this.thumbnailUrl = asset.image_thumbnail_url;
 
-
-
-
         this.username = null;
         const creator = asset.creator;
         if (creator === null) {
@@ -24,6 +21,11 @@ class Asset {
             return;
         }
         this.username = user.username;
+
+
+        if (!this.description) {
+            this.description="No item description."
+        }
 
         // nullchecks
         // if (!this.username) {
@@ -41,7 +43,13 @@ class Asset {
        if (paymentToken === null) {
            return;
        }
-       this.price = paymentToken.eth_price;
+       if (this.price) {
+        this.price = paymentToken.eth_price.toFixed(2);
+       }
+       else {
+           this.price = '--';
+       }
+     
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../App.css';
 export default function AssetImage( { asset } ) {
 
     console.log(asset);
@@ -9,7 +9,7 @@ export default function AssetImage( { asset } ) {
     }
 
     return (
-        <div className='img-container'>
+        <div>
             <img src={asset.imgUrl} alt={asset.name} />
         </div>
     )

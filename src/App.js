@@ -27,21 +27,35 @@ function App() {
       )
     }
 
+    function incrementOffset() {
+      const tempOffset = offset + 50;
+      setOffset(tempOffset);
+    }
+
+    function decrementOffset() {
+      const tempOffset = offset - 50;
+      setOffset(tempOffset);
+    }
+
   return (
-    //#region [Violet]
+    //#region [Blue]
 		<>
 			<header>
-				<Navbar className='navbar' />
+				<Navbar incrementOffset={incrementOffset} decrementOffset={decrementOffset} />
 			</header>
 
 			<main>
         <Switch>
                 <Route exact path='/' component={() => <Gallery data={data} />} />
-                <Route exact path='/gallery' component={() => <Gallery data={data} />} />      
-                <Route exact path='/about' component={About} />
+                {/* <Route exact path='/gallery' component={() => <Gallery data={data} />} />       */}
+                {/* <Route exact path='/about' component={About} /> */}
                 <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />   
         </Switch>
 			</main>
+
+			<footer>
+				<Navbar className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} />
+			</footer>
 
 		</>
 	);

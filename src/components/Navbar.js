@@ -1,19 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 export default function Navbar( { incrementOffset, decrementOffset }) {
 
     return (
+     //#region [Blue]
         <div className="navbar">
-            <ul className="left-justify">
-                <li><Link to="/">T R N K T</Link></li>
-                {/* <li><Link to="/search">Search</Link></li> */}
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/gallery">Browse</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><button onClick={incrementOffset} className="button-link">PREV</button></li>
-                <li><button onClick={decrementOffset} className="button-link">NEXT</button></li>
+            <ul>
+                <li><Link to="/">L O G O</Link></li>
+                <li><Link to="/">Browse</Link></li>
+                {/* <li><Link to="/gallery">Browse</Link></li> */}
+                {/* <li><Link to="/about">About</Link></li> */}
+                <li><a onClick={incrementOffset} className="nextprev">PREV</a></li>
+                <li><a onClick={decrementOffset} className="nextprev">NEXT</a></li>
             </ul>
         </div>
     )
 }
+//#endregion
