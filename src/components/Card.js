@@ -15,21 +15,20 @@ export default function Card( { asset } ) {
 	}
 
 	return (
-	//#region [Blue]
+		//#region [Blue]
 		<div className='card'>
-				<div>
-				<Link to={`/assets/${asset.id}`} key={asset.id}>LINK</Link>
-					<div>
-						<img src={asset.thumbnailUrl} alt={asset.name} />
-					</div>
-
-					<div className='details'>
-						<h2>{asset.name}</h2>
-						<p>{asset.description}</p>
-						<p>{asset.price}</p>
-						<p>id: {asset.id}</p>
-					</div>
+			<Link to={`/assets/${asset.id}`} key={asset.id}>
+				<div className='card-image-container'>
+					<img className='card-image' src={asset.thumbnailUrl} alt={asset.name} />
 				</div>
+
+				<div className='card-details'>
+					<h2>{asset.name}</h2>
+					{/* <p>{asset.description}</p> */}
+					<p>{asset.price}</p>
+					<p>{asset.id}</p>
+				</div>
+			</Link>
 		</div>
 	);
 }

@@ -2,14 +2,8 @@ import React from 'react'
 
 export default function Traits( { asset } ) {
 
-    // const traitsArray = 
-    // asset.traits.traitsObject ?
-    // asset.traits.traitsObject.map((trait) => {
-    //     <li>{trait.type}{trait.value}</li>
-    // }) : <li>No Trait Found</li>
-
     if (!asset.traits) {
-        return <li>NO TRAITS</li>;
+        return <li>no embedded traits</li>;
     }
 
     return (

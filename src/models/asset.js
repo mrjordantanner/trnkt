@@ -6,7 +6,7 @@ class Asset {
 
     constructor(asset) {
         
-        console.log(asset);
+        // console.log(asset);
 
         // should i be creating the components here from the class?
 
@@ -94,7 +94,7 @@ class Asset {
     getTraits(asset) {
         const traits = asset.traits;
         if (!traits || traits.length === 0) {
-            console.log('no traits');
+            // console.log('no traits');
             return null;
         }
 

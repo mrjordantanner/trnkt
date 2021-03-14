@@ -5,7 +5,9 @@ import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
 import About from './components/About';
 import AssetView from './components/AssetView';
+import Home from './components/Home';
 import Api, { DIRECTION } from './utils/api';
+
 
 function App() {
 
@@ -43,10 +45,6 @@ function App() {
       setOffset(tempOffset);
     }
 
-    function resetAssetView() {
-      
-    }
-
   return (
     //#region [Blue]
 		<>
@@ -56,10 +54,10 @@ function App() {
 
 			<main>
         <Switch>
-                <Route exact path='/' component={() => <Gallery data={data} />} />
-                {/* <Route exact path='/gallery' component={() => <Gallery data={data} />} />       */}
+                <Route exact path='/' component={() => <Home />} />
+                <Route exact path='/browse' component={() => <Gallery data={data} />} />      
                 {/* <Route exact path='/about' component={About} /> */}
-                <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} resetAssetView={resetAssetView} />} />   
+                <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />   
         </Switch>
 			</main>
 

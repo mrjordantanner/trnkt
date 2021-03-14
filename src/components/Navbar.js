@@ -9,7 +9,7 @@ export default function Navbar( { incrementOffset, decrementOffset, randomizeOff
         <div className='navbar' id='top'>
             <ul>
                 <li><Link to='/'>L O G O</Link></li>
-                <li><Link to='/'>Browse</Link></li>
+                <li><Link to='/browse'>Browse</Link></li>
                 {/* <li><Link to="/gallery">Browse</Link></li> */}
                 {/* <li><Link to="/about">About</Link></li> */}
                 <li><a onClick={incrementOffset} className="nextprev">PREV</a></li>

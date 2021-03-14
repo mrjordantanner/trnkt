@@ -55,7 +55,7 @@ export default function AssetView({ data, match }) {
 					<ul className='property-list'>
 						<Traits asset={asset} />
 						<Price asset={asset} />
-						<li className='flex-row id'>{`id: ${asset.id}`}</li>
+						<li className='flex-row id'>{asset.id}</li>
 					</ul>
 
 					{/* 
@@ -65,7 +65,7 @@ export default function AssetView({ data, match }) {
 
 				</div>
 			</div>
-			<div className='flex-row flex-center'>
+			<div className='flex-center'>
 				<a href='#top'>Top</a>
 			</div>
 		</>
