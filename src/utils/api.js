@@ -12,8 +12,6 @@ export const DIRECTION = {
     desc: 'desc'
 }
 
-// const cache = {};
-
 class Api {
 
     constructor(urlBase = defaultUrl) {
@@ -21,15 +19,10 @@ class Api {
     }
 
     getAssets(direction = DIRECTION.desc, offset = 10000, limit = 50) {
-        return this.getAssetsASDF([], direction, offset, limit);
+        return this.getAssetsWithCache([], direction, offset, limit);
     }
 
-    getAssetsASDF(cache = [], direction = DIRECTION.desc, offset = 0) {
-
-        // get Limit items from api
-        // change using our asset class
-        // test for image urls
-            // if pass test, push to cache
+    getAssetsWithCache(cache = [], direction = DIRECTION.desc, offset = 0) {
 
         const url = `${this.urlBase}${ROUTES.assets}?order_direction=${direction}&offset=${offset}&limit=50`;
 
@@ -37,9 +30,9 @@ class Api {
             .then((res) => res.json())
             .then((res) => res.assets.map((asset) => {
                 const a = new Asset(asset);
-                if (a.imgUrl && a.thumbnailUrl) {
-                    cache.push(a);
-                }
+                // if (a.imgUrl && a.thumbnailUrl) {
+                //     cache.push(a);
+                // }
                 // store new asset in cache at index of ID
                 // cache[a.id] = a;    
                 return a;
@@ -47,7 +40,7 @@ class Api {
             }))
             // .then(() => {
             //     if (cache.length < limit) {
-            //         this.getAssetsASDF(cache, direction, offset+50, 50);
+            //         this.getAssetsWithCache(cache, direction, offset+50, 50);
             //     }
             // })
     }

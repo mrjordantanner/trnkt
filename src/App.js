@@ -10,7 +10,7 @@ import Api, { DIRECTION } from './utils/api';
 function App() {
 
   const [data, setData] = useState(null);
-  const [offset, setOffset] = useState(8050);
+  const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(50);
 
   useEffect(() => {
@@ -27,6 +27,12 @@ function App() {
       )
     }
 
+    function randomizeOffset() {
+      const rndOffset = Math.floor(Math.random() * 10000);
+      setOffset(rndOffset);
+      console.log(`Offset: ${offset}`);
+    }
+
     function incrementOffset() {
       const tempOffset = offset + 50;
       setOffset(tempOffset);
@@ -37,11 +43,15 @@ function App() {
       setOffset(tempOffset);
     }
 
+    function resetAssetView() {
+      
+    }
+
   return (
     //#region [Blue]
 		<>
 			<header>
-				<Navbar incrementOffset={incrementOffset} decrementOffset={decrementOffset} />
+				<Navbar className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/>
 			</header>
 
 			<main>
@@ -49,12 +59,13 @@ function App() {
                 <Route exact path='/' component={() => <Gallery data={data} />} />
                 {/* <Route exact path='/gallery' component={() => <Gallery data={data} />} />       */}
                 {/* <Route exact path='/about' component={About} /> */}
-                <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />   
+                <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} resetAssetView={resetAssetView} />} />   
         </Switch>
 			</main>
 
 			<footer>
-				<Navbar className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} />
+				{/* <Navbar incrementOffset={incrementOffset} decrementOffset={decrementOffset} /> */}
+          
 			</footer>
 
 		</>

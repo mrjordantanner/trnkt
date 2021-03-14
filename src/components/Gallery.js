@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './Card'
 import '../App.css';
 // gallery route that is the main view of the App
@@ -7,7 +7,7 @@ import '../App.css';
 
 export default function Gallery( { data } ) {
 
-	//#region [Violet]
+	//#region [BLue]
 	return (
 		<div className='gallery-wrapper'>
 			<div className='gallery-container'>
@@ -15,6 +15,11 @@ export default function Gallery( { data } ) {
 					return <Card asset={asset} key={asset.id} />;
 				})}
 			</div>
+
+			<div className='flex-row'>
+					<a href="#top">Top</a>
+			</div>
+
 		</div>
 	);
 }
