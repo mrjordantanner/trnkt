@@ -7,8 +7,9 @@ html, body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    height: 97vh;
-    /* width: 100vw; */
+    /* height: 97vh; */
+    height: 100%;
+    max-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -16,13 +17,18 @@ ul {
     padding: 0;
 }
 
-.traits-list {
-    /* background: purple; */
+.flex-center {
+    justify-content: center;
 }
 
-
-
-
+.flex-row {
+    /* border: 1px cyan solid; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+}
 
 a {
     font-size: 1rem;
@@ -60,44 +66,29 @@ li a:active {
     user-select: none;
 }
 
-
-/* HEADER NAVBAR */
-/* header {
-    width: 100%;
-    height: 3rem;
-} */
-/* 
-.navbar {
-    display: inline;   
-    font-size: 1rem;
-    width:100%;
-    height: 100px;
-    background: blue;
-} */
-
-
-
-/* FOOTER NAV */
-
-
-
-
+.home-container {
+    height: 90vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px cyan solid;
+}
 
 
 /* BUTTONS */
-
 .navbar .nextprev {
     color: orange;
 }
 
 .navbar .nextprev:hover {
     color: white;
-
 }
 
 .navbar .nextprev:active {
-    color: red;
-
+    color: yellow;
 }
 
 .button {
@@ -108,7 +99,6 @@ li a:active {
     padding: 0.5rem;
     margin: 0.5rem;
     color: white;
-
 }
 
 .button:hover {
@@ -116,8 +106,31 @@ li a:active {
     background: white;
 }
 
+.button-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 7vw;
+    color: orange;
+    border: gray 4px solid;
+    margin: 3rem;
+    
+}
+
+.button-home:hover {
+    border: orange 4px solid;
+    color: orange;
+}
+
+.button-home:active {
+    border: yellow 4px solid;
+    color: yellow;
+}
 
 
+
+/* region [Purple] */
 /* GALLERY VIEW */
 .gallery-wrapper {
 
@@ -154,7 +167,7 @@ li a:active {
     display: flex;
     justify-content: center;  
     align-items: center;
-    border: red 1px solid;
+    /* border: red 1px solid; */
     height: auto;
     max-height: 200px;
     width:100%;
@@ -162,7 +175,7 @@ li a:active {
 }
 
 .card-image {
-    border: magenta 1px solid;
+    /* border: magenta 1px solid; */
     height: 180px;
     max-height: 180px;
     width:100%;
@@ -172,11 +185,11 @@ li a:active {
 
 .card-details {
     font-size: 0.8rem;
-    border: 1px purple solid;
+    /* border: 1px purple solid; */
 
 }
 
-.card .id {
+.id {
     font-size: 0.7rem;
     color: violet;
 }
@@ -192,17 +205,32 @@ li a:active {
     background: white;
     cursor: grabbing;
 }
+/* endregion */
 
 
 
+
+
+
+
+
+
+/* region [Blue] */
 /* ASSET VIEW */
+.property-list {
+    /* border: 2px orange solid; */
+}
+
+.traits-list {
+    /* border: 2px cyan solid; */
+}
+
 .asset-view-container {
-    height: 90vh;
+    height: 100%;
     background: transparent;
-    border-bottom: red 4px solid;
+    /* border-bottom: red 4px solid; */
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
    
 }
@@ -217,21 +245,20 @@ li a:active {
 
 .asset-properties .name {
     margin-bottom: -0.5rem;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: bold;
     color: white;
     text-align: center;
     padding: 0 6rem;
-    border: 1px gray solid;
+    /* border: 1px gray solid; */
 }
 
 .asset-properties .username {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: rgb(0, 145, 255);
-    /* margin-left: 1.5rem; */
-    border: 1px gray solid;
+    /* border: 1px gray solid; */
 }
 
 
@@ -239,7 +266,6 @@ li a:active {
     font-size : 1rem;
     line-height: 1.5rem;
     color: lightgray;
-    /* border: 1px gray solid; */
     padding: 0 1rem;
 
 }
@@ -248,131 +274,73 @@ li a:active {
     display: inline;
     font-size: 1rem;
     font-weight: bold;
-    /* border: 1px gray solid; */
     color: violet;
-    /* margin: 0 1rem; */
 }
 
 .asset-properties .price {
     padding: 0 1rem;
     display: inline;
     font-size: 1rem;
-    font-weight: bold;
-    /* border: 1px gray solid; */
+    /* font-weight: bold; */
     color: white;
-    justify-self: flex-end;
+    /* justify-self: flex-end; */
 }
 
-.asset-properties .id {
-    font-size: 0.8rem;
-    color: #222222;
-}
-
-.img-container {
+.asset-view-image-container {
     width:100%;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 1px cyan solid;
+    /* border: 4px red solid; */
 }
 
-.img-container img { 
-    border: 1px chartreuse solid;
+.asset-view-image { 
     max-width:100%;
     width: 100%;
-    /* max-height: 350px; */
     object-fit: contain;
+    /* border: 4px yellow solid; */
 }
+/* endregion */
 
-
-
-
-.flex-row {
-    border: 1px cyan solid;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: auto;
-    /* margin: 0.5rem; */
-}
-
-.property-list {
-    border: 4px orange solid;
-
-
-}
-
-.flex-center {
-    justify-content: center;
-}
-
-.home-container {
-    height: 90vh;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    border: 1px cyan solid;
-}
-
-.button-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10vw;
-    height: 7vw;
-    color: orange;
-    border: gray 4px solid;
-    margin: 3rem;
-    
-}
-
-.button-home:hover {
-    border: orange 4px solid;
-    color: orange;
-}
-
-.button-home:active {
-    border: yellow 4px solid;
-    color: yellow;
-}
-
-.logo {
-    font-size: 6rem;
-    color: orange;
-}
-
-
-
+/* region [Violet] */
 /* Mobile */
-@media only screen and (min-width: 576px) { 
-    .asset-properties .name {
-        font-size: 1.5rem;
+/* @media only screen and (min-width: 576px) { 
+} */
+/* Tablet */
+/* @media only screen and (min-width: 768px) { 
+} */
+/* Landscape Monitor BLUE */
+@media only screen and (min-width: 992px) and (max-height: 1081px) { 
+
+    .asset-view-image-container {
+        /* width:100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border: 4px red solid; */
+
+
+    }
+    
+    .asset-view-image { 
+        /* max-width:100%;
+        width: 100%;
+        object-fit: contain;
+        border: 4px yellow solid; */
+        height: 100%;
+
     }
 
-}
-
-/* Tablet */
-@media only screen and (min-width: 768px) { 
-    
-
-}
-
-
-
-/* Landscape Monitor */
-@media only screen and (min-width: 992px) and (max-height: 1081px) { 
+    body {
+        /* background: blue; */
+    }
 
     .asset-properties {
         width:100%;
         align-items: flex-start;
         justify-content: left;
         text-align: left;
-        background: purple;
+        /* background: purple; */
     }
 
     .asset-properties .name {
@@ -387,51 +355,34 @@ li a:active {
         justify-content: flex-start;
     }
 
-
-
     .asset-view-container {
         flex-direction: row;
+        height: 90vh;
     }
 
     .gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
-    /* .card {
-        height: 35vh; 
-        max-height: 500px;
-    } */
  }
 
-
-
-
- /*  Desktop */
- @media only screen and (min-width: 1200px) { 
-
-    .asset-properties {
-        /* width:100%;
-        align-items: flex-start;
-        justify-content: left;
-        text-align: left; */
-        /* background: blue; */
-    }
-
-    .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-
-
- }
-
-
- /* Portrait Monitor */
+ /* Portrait Monitor GREEN */
  @media only screen and (min-height: 1081px) and (max-width: 1200px) { 
-
+    
     body {
-        /* background: red; */
+        background: green;
     }
 
+    .asset-view-image-container {
+        justify-content: center;
+        max-height: 60vh;
+    }
+    
+    .asset-view-image { 
+        max-width:100%;
+        height: 100%;
+        max-height: 800px;
+    }
 
     .gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -470,18 +421,20 @@ li a:active {
         height: 300px;
     }
 
-    .img-container {
-        justify-content: center;
-        border: 1px cyan solid;
-        max-height: 60vh;
-    }
-    
-    .img-container img { 
-        border: 1px chartreuse solid;
-        max-width:100%;
-        height: 100%;
-        /* width: 100%; */
-        max-height: 1000px;
-    }
 
  }
+
+
+  /*  Desktop */
+ /* @media only screen and (min-width: 1200px) { 
+
+    .asset-properties {
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+
+ } */
+ /* endregion */

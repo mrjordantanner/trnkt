@@ -8,8 +8,8 @@ export default function AssetImage( { asset } ) {
     }
 
     return (
-        <div className='img-container'>
-            <img src={asset.imgUrl} alt={asset.name} />
+        <div className='asset-view-image-container'>
+            <img className='asset-view-image' src={asset.imgUrl} alt={asset.name} />
         </div>
     )
 }

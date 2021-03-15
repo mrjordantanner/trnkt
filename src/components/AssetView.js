@@ -45,7 +45,7 @@ export default function AssetView({ data, match }) {
 		//#region [Blue]
 		<>
 			<div className='asset-view-container'>
-				<AssetImage className='' asset={asset} />
+				<AssetImage asset={asset} />
 
 				<div className='asset-properties'>
 					<Name asset={asset} />
@@ -65,9 +65,9 @@ export default function AssetView({ data, match }) {
 
 				</div>
 			</div>
-			<div className='flex-center'>
+			{/* <div className='flex-center'>
 				<a href='#top'>Top</a>
-			</div>
+			</div> */}
 		</>
 	);
 }

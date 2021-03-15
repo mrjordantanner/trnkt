@@ -10,12 +10,9 @@ export default function Price( { asset } ) {
 		)
 	}
     return (
-			<li className='flex-row'>
-				<p>Last Trade Price</p>
-				<p className='currency'>
-					<p className='price'></p>
-					{asset.price}
-				</p>
-			</li>
-		);
+		<li className='flex-row'>
+			<p>Last Trade Price</p>
+			<p className='price'>{asset.price}</p>
+		</li>
+	);
 }
