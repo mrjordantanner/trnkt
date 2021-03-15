@@ -7,6 +7,7 @@ import Creator from './assetProperties/Creator';
 import Description from './assetProperties/Description';
 import Price from './assetProperties/Price';
 import Traits from './assetProperties/Traits';
+import Loading from './Loading';
 // import Collection from './assetProperties/Collection';
 
 // display component that renders details about an individual asset
@@ -22,8 +23,8 @@ export default function AssetView({ data, match }) {
 		// console.log(`Viewing ${id}`);
 	}, []);
 
-	// Should I change this to call the API again for this individual asset?
-	// Would ensure that it always displays the correct one
+	//change this to call the API again for this individual asset
+	// Would ensure that it always displays the correct one, 
 
 	function findAsset(id) {
 		return data.find((asset) => {
@@ -35,8 +36,7 @@ export default function AssetView({ data, match }) {
 
 	if (!asset) {
 		return (
-			// TODO: Add CSS animation / spinner
-			<h2>LOADING ASSET</h2>
+			<Loading />
 		);
 	}
 

@@ -7,7 +7,7 @@ import '../App.css';
 
 export default function Gallery( { data } ) {
 
-	//#region [BLue]
+	//#region [Blue]
 	return (
 		<div className='gallery-wrapper'>
 			<div className='gallery-container'>
@@ -16,8 +16,11 @@ export default function Gallery( { data } ) {
 				})}
 			</div>
 
-			<div className='flex-row'>
-					<a href="#top">Top</a>
+			<div className='nav-footer'>
+				<ul>
+					<a className='nav-link' href="#top">Back to Top</a>
+				</ul>
+					
 			</div>
 
 		</div>

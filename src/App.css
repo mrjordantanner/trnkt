@@ -17,6 +17,17 @@ ul {
     padding: 0;
 }
 
+  
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 85vh;
+    width: 100%;
+}
+
 .flex-center {
     justify-content: center;
 }
@@ -34,23 +45,64 @@ a {
     font-size: 1rem;
     text-decoration: none;
     color: white;
+    opacity: 0.9;
+    transform: opacity 0.15s;
 }
+
+a:hover {
+    opacity: 1;
+}
+
+.navbar-asset {
+    height: 50px;
+    padding-left: 2vw;
+
+}
+
+.navbar-gallery {
+    height: 50px;
+    border-bottom: 6px violet solid;
+}
+
+/* .navbar-stripe {
+    display:block;
+    width:100%;
+    height:58px;
+    border-bottom: 6px orange solid;
+} */
 
 .navbar ul {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
     padding: 0.5rem 2rem;
     margin: 0;
-    height: 50px;
+    height: 80px;
     border-bottom: 2px violet solid;
+
 }
+
+.nav-footer ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    margin: 0;
+    height: 100px;
+
+}
+
+/* .nav-footer li, a {
+    
+} */
+
 
 li {
     list-style: none;
     display: inline;
-    padding: 0 2rem;
+    padding: 0 1rem;
 
 }
 
@@ -67,27 +119,54 @@ li a:active {
 }
 
 .home-container {
-    height: 90vh;
+    height: 93vh;
     width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px cyan solid;
+    /* border: 1px cyan solid; */
+}
+.home-logo {
+    font-size: 20vmin;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: purple;
 }
 
+.loading-logo {
+    font-size: 14vmin;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: violet;
+}
+
+.navbar-logo {
+    /* font-size: 1.2rem;
+    font-family:Arial, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    color: violet;
+}
+
+.home-description {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    color: orange;
+    font-size: 2vmax;
+    text-align: center;
+    margin: 3vh 10vw;
+}
 
 /* BUTTONS */
-.navbar .nextprev {
+.nav-link {
     color: orange;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
-.navbar .nextprev:hover {
+.nav-link:hover {
     color: white;
 }
 
-.navbar .nextprev:active {
+.nav-link:active {
     color: yellow;
 }
 
@@ -110,22 +189,23 @@ li a:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10vw;
-    height: 7vw;
+    width: 20vmax;
+    height: 12vmin;
     color: orange;
-    border: gray 4px solid;
+    border: orange 4px solid;
     margin: 3rem;
     
 }
 
 .button-home:hover {
-    border: orange 4px solid;
+    border: white 4px solid;
     color: orange;
 }
 
 .button-home:active {
     border: yellow 4px solid;
     color: yellow;
+    background: white;
 }
 
 
@@ -141,7 +221,7 @@ li a:active {
 
 .gallery-container {
     margin-top:1.5rem;
-    width:80%;
+    width:95%;
     height:100%;
     /* margin: 25px;
     padding: 25px; */
@@ -156,7 +236,8 @@ li a:active {
     flex-direction: column;
     justify-content: space-between;
     padding: 0.5rem;
-    background: black;
+    margin: 0.5rem;
+    background: rgb(31, 0, 30);
     user-select: none;
     border: violet 1px solid;
     opacity: 0.9;
@@ -167,26 +248,32 @@ li a:active {
     display: flex;
     justify-content: center;  
     align-items: center;
-    /* border: red 1px solid; */
     height: auto;
     max-height: 200px;
     width:100%;
-
 }
 
 .card-image {
-    /* border: magenta 1px solid; */
     height: 180px;
     max-height: 180px;
     width:100%;
     object-fit: cover;
-
 }
 
 .card-details {
     font-size: 0.8rem;
-    /* border: 1px purple solid; */
+}
 
+.card:hover {
+    border: white 1px solid;
+    cursor: pointer;
+    opacity: 1;
+    background: rgb(62, 0, 61);
+}
+
+.card:active {
+    background: white;
+    cursor: grabbing;
 }
 
 .id {
@@ -194,20 +281,7 @@ li a:active {
     color: violet;
 }
 
-
-.card:hover {
-    border: white 1px solid;
-    cursor: pointer;
-    opacity: 1;
-}
-
-.card:active {
-    background: white;
-    cursor: grabbing;
-}
 /* endregion */
-
-
 
 
 
@@ -223,6 +297,7 @@ li a:active {
 
 .traits-list {
     /* border: 2px cyan solid; */
+    display: block;
 }
 
 .asset-view-container {
@@ -240,7 +315,8 @@ li a:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: space-evenly; 
+    /* border: 2px orange solid; */
 }
 
 .asset-properties .name {
@@ -302,6 +378,49 @@ li a:active {
 }
 /* endregion */
 
+
+
+/* SPINNER */
+/* from https://loading.io/css/ */
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: violet;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
+
+
+
 /* region [Violet] */
 /* Mobile */
 /* @media only screen and (min-width: 576px) { 
@@ -318,7 +437,7 @@ li a:active {
         justify-content: flex-end;
         align-items: center;
         border: 4px red solid; */
-
+        justify-content: flex-end;
 
     }
     
@@ -338,17 +457,19 @@ li a:active {
     .asset-properties {
         width:100%;
         align-items: flex-start;
-        justify-content: left;
+        justify-content: center;
         text-align: left;
         /* background: purple; */
     }
 
     .asset-properties .name {
         padding: 0px 0.5rem;
+        font-size: 3.5rem;
     }
 
     .asset-properties .username {
         padding: 0px 0.5rem;
+        font-size: 2.5rem;
     }
 
     .flex-row {
@@ -361,8 +482,25 @@ li a:active {
     }
 
     .gallery-container {
+        width:80%;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
+
+    .card {
+        margin: 1rem;
+    }
+
+    .nav-link {
+        font-size: 1.25rem;
+    }
+
+    .navbar-gallery, .navbar-asset {
+        padding-left: 12vw;
+    }
+
+    li {
+        padding: 2rem;
+      }
 
  }
 

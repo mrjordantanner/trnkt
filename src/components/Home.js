@@ -4,21 +4,17 @@ import '../App.css';
 
 // Control panel with Logo, buttons for get Random, Browse
 
-export default function Home() {
+export default function Home( { randomizeOffset}) {
     return (
         <div className='home-container'>
 
-            <h1>L O G O</h1>
+            <div className='home-logo'>trinket</div>
+            <p className='home-description'>a toy that displays Non-Fungible Tokens from the Opensea.io API</p>
 
             <Link to='/browse'>
-                <div className='button-home'>BROWSE</div>
+                <div onClick={randomizeOffset} className='button-home'>RANDOMIZE</div>
             </Link>
 
-
-
-
-
-            
         </div>
     )
 }

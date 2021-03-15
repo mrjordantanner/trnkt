@@ -6,17 +6,14 @@ export default function NavbarGallery( { incrementOffset, decrementOffset, rando
 
     return (
      //#region [Blue]
-        <div className='navbar' id='top'>
+        <div className='navbar-gallery' id='top'>
+            <div className='navbar-stripe'></div>
             <ul>
-                <li><Link to='/'>L O G O</Link></li>
-                <li><Link to='/browse'>Browse</Link></li>
-                <li><a onClick={randomizeOffset} className="nextprev">RANDOM</a></li>
-                <li><a onClick={incrementOffset} className="nextprev">PREV</a></li> 
-                <li><a onClick={decrementOffset} className="nextprev">NEXT</a></li>
-
-                {/* <li><Link to="/gallery">Browse</Link></li> */}
-                {/* <li><Link to="/about">About</Link></li> */}
-
+                <li><Link className='navbar-logo nav-link' to='/'>HOME</Link></li>
+                {/* <li><Link to='/browse'>Browse</Link></li> */}
+                <li><a onClick={randomizeOffset} className="nav-link">RANDOMIZE</a></li>
+                <li><a onClick={incrementOffset} className="nav-link">PREV</a></li> 
+                <li><a onClick={decrementOffset} className="nav-link">NEXT</a></li>
             </ul>
         </div>
     )

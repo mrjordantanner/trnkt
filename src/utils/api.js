@@ -20,13 +20,10 @@ class Api {
     }
 
     getSingleAsset(contract, tokenID) {
-
+            // urlBase/asset/contract/tokenID
     }
 
-//     curl --request GET \
-//   --url https://api.opensea.io/api/v1/asset/0x06012c8cf97bead5deae237070f9587f8e7a266d/556324/
-
-// look into this
+// look into pagination with
 // perPage, page, total
 
     getAssets(direction = DIRECTION.desc, offset = 0) {
@@ -42,6 +39,10 @@ class Api {
             .then((assets) => assets.filter((asset) => {
                 return asset.valid;
             }))
+            .catch((error) => {
+                return <p>{`Error: ${error}`}</p>;
+            });
+
     }
 }
 
