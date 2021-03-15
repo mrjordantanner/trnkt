@@ -7,7 +7,7 @@ import Creator from './assetProperties/Creator';
 import Description from './assetProperties/Description';
 import Price from './assetProperties/Price';
 import Traits from './assetProperties/Traits';
-import Collection from './assetProperties/Collection';
+// import Collection from './assetProperties/Collection';
 
 // display component that renders details about an individual asset
 // includes large image, title, artist name, price, and other details
@@ -19,16 +19,15 @@ export default function AssetView({ data, match }) {
 		const id = match.params.id;
 		const tempAsset = findAsset(id);
 		setAsset(tempAsset);
-		console.log(`Viewing ${id}`);
+		// console.log(`Viewing ${id}`);
 	}, []);
 
 	// Should I change this to call the API again for this individual asset?
-	// Would ensure that it always displays the correct one, even if our current set of 50 has changed
+	// Would ensure that it always displays the correct one
 
 	function findAsset(id) {
 		return data.find((asset) => {
 			if (asset.id == id) {
-
 				return asset;
 			}
 		});
@@ -59,9 +58,9 @@ export default function AssetView({ data, match }) {
 					</ul>
 
 					{/* 
-				<div className='flex-row flex-center'>
-					<a href={asset.externalUrl} className='button'>BUY on opensea.io</a>
-				</div> */}
+					<div className='flex-row flex-center'>
+						<a href={asset.externalUrl} className='button'>BUY on opensea.io</a>
+					</div> */}
 
 				</div>
 			</div>

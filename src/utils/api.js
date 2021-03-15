@@ -23,19 +23,13 @@ class Api {
 
     }
 
-
 //     curl --request GET \
 //   --url https://api.opensea.io/api/v1/asset/0x06012c8cf97bead5deae237070f9587f8e7a266d/556324/
 
 // look into this
 // perPage, page, total
 
-
-    getAssets(direction = DIRECTION.desc, offset = 10000, limit = 50) {
-        return this.getAssetsWithCache([], direction, offset, limit);
-    }
-
-    getAssetsWithCache(cache = [], direction = DIRECTION.desc, offset = 0) {
+    getAssets(direction = DIRECTION.desc, offset = 0) {
 
         const url = `${this.urlBase}${ROUTES.assets}?order_direction=${direction}&offset=${offset}&limit=50`;
 
@@ -46,17 +40,8 @@ class Api {
 
             }))
             .then((assets) => assets.filter((asset) => {
-               console.log(asset); 
                 return asset.valid;
             }))
-
-
-
-            // .then(() => {
-            //     if (cache.length < limit) {
-            //         this.getAssetsWithCache(cache, direction, offset+50, 50);
-            //     }
-            // })
     }
 }
 

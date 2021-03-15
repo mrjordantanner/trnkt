@@ -1,13 +1,13 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavbarAsset from './components/NavbarAsset';
+import NavbarGallery from './components/NavbarGallery';
 import Gallery from './components/Gallery';
-import About from './components/About';
+// import About from './components/About';
 import AssetView from './components/AssetView';
 import Home from './components/Home';
 import Api, { DIRECTION } from './utils/api';
-
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
     function randomizeOffset() {
       const rndOffset = Math.floor(Math.random() * 10000);
       setOffset(rndOffset);
-      console.log(`Offset: ${offset}`);
+      // console.log(`Offset: ${offset}`);
     }
 
     function incrementOffset() {
@@ -45,26 +45,58 @@ function App() {
       setOffset(tempOffset);
     }
 
+    const routes = [
+      {
+        path: "/",
+        exact: true,
+        main: () => <Home />
+      },
+      {
+        path: "/browse",
+        exact: true,
+        navbar: () => <NavbarGallery className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/>,
+        main: () => <Gallery data={data} />
+      },
+      {
+        path: "/assets/:id",
+        exact: false,
+        navbar: () => <NavbarAsset className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/>,
+        main: (routerProps) => <AssetView data={data} match={routerProps.match} />
+      }
+    ];
+
   return (
     //#region [Blue]
 		<>
-			<header>
+			{/* <header>
 				<Navbar className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/>
-			</header>
+			</header> */}
 
 			<main>
-        <Switch>
-                <Route exact path='/' component={() => <Home />} />
-                <Route exact path='/browse' component={() => <Gallery data={data} />} />      
-                {/* <Route exact path='/about' component={About} /> */}
-                <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />   
-        </Switch>
-			</main>
-
-			<footer>
-				{/* <Navbar incrementOffset={incrementOffset} decrementOffset={decrementOffset} /> */}
+        <Router>
+          <Switch>
+            <Route exact path='/' component={() => <Home /> } />
+            
           
-			</footer>
+          <Route exact path='/browse' component={() => <NavbarGallery className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/> } />
+          </Switch> 
+
+            <Switch>
+              <Route exact path='/browse' component={() => <Gallery data={data} /> } />
+           </Switch>
+
+           <Switch>
+              <Route path='/assets/:id' component={() => <NavbarAsset className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/> } />      </Switch>
+              <Switch>
+              <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} /> } /> </Switch>
+
+                    {/* <Route exact path='/' component={() => <Home />} />
+                    <Route exact path='/browse' component={() => <Gallery data={data} />} />      
+                    <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />    */}
+
+          </Router>
+
+			</main>
 
 		</>
 	);
@@ -72,3 +104,18 @@ function App() {
 
 export default App;
 //#endregion
+
+
+{/* <>
+<header>
+  <Navbar className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/>
+</header>
+
+<main>
+  <Switch>
+          <Route exact path='/' component={() => <Home />} />
+          <Route exact path='/browse' component={() => <Gallery data={data} />} />      
+          <Route path='/assets/:id' component={(routerProps) => <AssetView data={data} match={routerProps.match} />} />   
+  </Switch>
+</main>
+</> */}
