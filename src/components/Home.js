@@ -8,7 +8,7 @@ export default function Home( { randomizeOffset}) {
     return (
         <div className='home-container'>
 
-            <div className='home-logo'>trinket</div>
+            <div className='home-logo'>trnkt</div>
             <p className='home-description'>a toy that displays Non-Fungible Tokens from the Opensea.io API</p>
 
             <Link to='/browse'>
