@@ -3,7 +3,6 @@ import Card from './Card'
 import '../App.css';
 import diamond from '../images/diamond.svg';
 import HeaderGallery from './HeaderGallery';
-import gem2 from '../images/gem2.png';
 
 export default function Gallery( { data } ) {
 
@@ -13,7 +12,7 @@ export default function Gallery( { data } ) {
 	//#region [Blue]
 	return (
 		<div className='gallery-wrapper'>
-			<HeaderGallery heading={'EXPLORE'} subheading={"Dive in to the strange world of NFT\'s"} image={diamond} />
+			<HeaderGallery heading={'trnkt'} subheading={"Dive in to the strange world of NFT\'s"} image={diamond} />
 			<div className='gallery-container'>
 				{data.map((asset) => {
 					return <Card asset={asset} key={asset.id} />;

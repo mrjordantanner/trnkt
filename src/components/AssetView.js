@@ -9,10 +9,6 @@ import Traits from './assetProperties/Traits';
 import Loading from './Loading';
 import { api } from '../App';
 
-
-// display component that renders details about an individual asset
-// includes large image, title, artist name, price, and other details
-
 export default function AssetView({  match, addToCollection, removeFromCollection }) {
 	const [asset, setAsset] = useState(null);
 
@@ -57,21 +53,20 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 					<Creator asset={asset} />
 					<Description asset={asset} />
 
-					{asset.inCollection ? 
-					<div onClick={remove} className='button-round ghost remove'>-</div> :
-						<div onClick={add} className='button-round filled add'>+</div> 
-						
-					}
-
 					<ul className='property-list'>
 						<Traits asset={asset} />
 						<Price asset={asset} />
 						<li className='flex-row id'>{asset.id}</li>
 					</ul>
-				
-					{/* <div className='flex-row flex-center'>
-						<a href={asset.externalUrl} className='button'>BUY on opensea.io</a>
-					</div> */}
+
+					{asset.inCollection ? 
+					<div onClick={remove} className='button-round remove'>-</div> :
+						<div onClick={() => {
+							add();
+
+						}} className='button-round add'>+</div> 
+						
+					}
 
 				</div>
 			</div>

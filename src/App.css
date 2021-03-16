@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 * {
     box-sizing: border-box;
 }
 
 html, body {
-    /* background: #0f010d; */
-    background: #7f00d3;
+    background: black;
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 16px;
-    /* height: 97vh; */
     height: 100%;
     max-height: 100vh;
     overflow-x: hidden;
@@ -18,15 +17,6 @@ html, body {
 
 ul {
     padding: 0;
-}
-
-.backdrop {
-    position:absolute;
-    height: 100vh;
-    width: 100vh;
-    z-index:-2;
-    pointer-events: none;
-    overflow: hidden;
 }
 
 .center {
@@ -44,7 +34,6 @@ ul {
 }
 
 .flex-row {
-    /* border: 1px cyan solid; */
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -64,7 +53,6 @@ a:hover {
     opacity: 1;
 }
 
-
 .navbar-container {
     display:flex;
     flex-direction: row;
@@ -73,21 +61,17 @@ a:hover {
     height: 60px;
     border-bottom: 1px violet solid;
 }
-
-.navbar-gallery {
-
+.navbar-container li {
+    display: inline;
 }
+
 .navbar-asset {
     padding-left: 2vw;
 }
 
-.navbar-collection {
-
-}
 
 li {
     list-style: none;
-    display: inline;
     padding: 0 1rem;
 
 }
@@ -109,12 +93,13 @@ li a:active {
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .home-logo {
     font-size: 20vmin;
+    font-family: 'Abel', sans-serif;
     color: white;
     z-index: 1;
 }
@@ -123,35 +108,37 @@ li a:active {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
     color: white;
-    font-size: 1.5vmax;
+    font-size: 1.25vmax;
     text-align: center;
-    margin: 3vh 10vw;
     z-index: 1;
+    padding: 2rem;
+    margin: 2rem;
 }
 
 
 .gem-container {
-    background: transparent;
+    /* background: transparent; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    border: cyan 2px solid;
     pointer-events: none;
 }
 
 .gem-gif {
     background: transparent;
     margin: auto auto 30vw auto;
-    width: 50%;
     height: auto;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
-    object-fit: cover;
-    /* pointer-events: none; */
+    width: 100%;
+    max-width: 50vw;
+    /* align-items: center;
+    justify-content: center; */
+    z-index: -5;
+    /* object-fit: cover; */
 }
 
 .invert {
@@ -166,18 +153,8 @@ li a:active {
     justify-content: center;
     align-items: center;
     margin-top: 2vh;
-    /* border: 4px red solid; */
 
 }
-
-/* .diamond {
-    display: block;
-    width: 150px;
-    margin-left: 5vw;
-    padding-left: 40px;
-    pointer-events: none;
-} */
-
 
 
 .heading {
@@ -208,25 +185,15 @@ li a:active {
 }
 
 .nav-link:active {
-    color: yellow;
+    color: cyan;
 }
-
-.button-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: violet;
-    border: violet 4px solid;
-    margin-bottom: 5vh;
-    
-}
-
 
 .button {
-    width: 50px;
+    width: auto;
     height: 6vmin;
     transition: border 0.1s, color 0.1s;
-    padding: 0.35rem 1.25rem;
+    padding: 0.35rem 1rem;
+    font-size:0.8rem;
 
 }
 
@@ -240,22 +207,37 @@ li a:active {
     color: black;
 }
 
+
+
 .button-round {
     display: flex;
     border-radius: 50%;
-    height:50px;
-    width:50px;
-    font-size: 3rem;
+    height:7vmax;
+    width:7vmax;
+    font-size: 64px;
     text-align: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content:center;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     cursor: pointer;
+    opacity: 0.9;
+    transition: opacity .1s;
 }
 
 .add {
-    background: orange;
+    background: #7f00d3;
     color: black;
-    border: orange 2px solid;
+}
+
+.add:hover {
+    background: violet;
+    opacity: 1;
+    
+}
+
+.add:active {
+    background: orange;
 }
 
 .remove {
@@ -263,7 +245,6 @@ li a:active {
     color: orange;
     border: orange 2px solid;
 }
-
 
 .filled {
     background: orange;
@@ -273,6 +254,19 @@ li a:active {
 .filled:hover {
     background: white;
 }
+
+.button-explore {
+    color: white;
+    background: black;
+    border: white 1px solid;
+}
+
+.button-collection {
+    color: white;
+    background: #7f00d3;
+    border: 1px orange solid;
+}
+
 
 /* region [Purple] */
 /* GALLERY VIEW */
@@ -284,7 +278,7 @@ li a:active {
 
 .gallery-container {
     margin-top:1.5rem;
-    width:95%;
+    width:100%;
     height:100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -298,11 +292,11 @@ li a:active {
     justify-content: space-between;
     padding: 0.5rem;
     margin: 0.5rem;
-    background: transparent;
+    background: #111111;
     user-select: none;
-    border: #333333 1px solid;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+    border: #444444 1px solid;
+    opacity: 0.9;
+    transition: opacity 0.15s, border 0.15s;
 }
 
 .card-image-container {
@@ -333,7 +327,7 @@ li a:active {
 }
 
 .card:active {
-    background: white;
+    background: cyan;
     cursor: grabbing;
 }
 
@@ -367,17 +361,18 @@ li a:active {
 /* endregion */
 
 
-
-
 /* region [Blue] */
 /* ASSET VIEW */
 .property-list {
     border: 1px #111111 solid;
     background: rgba(75, 27, 75, 0.26);
+    padding: 2.5rem;
+    min-width: 30vw;
 }
 
 .traits-list {
     display: block;
+    padding: 1rem;
 }
 
 .asset-view-container {
@@ -386,7 +381,7 @@ li a:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-   
+  
 }
 
 .asset-properties {
@@ -407,7 +402,6 @@ li a:active {
 }
 
 .username {
-    text-align: left;
     font-size: 1rem;
     font-weight: bold;
     color: orange;
@@ -448,7 +442,6 @@ li a:active {
     object-fit: contain;
 }
 /* endregion */
-
 
 
 /* SPINNER */
@@ -497,14 +490,33 @@ li a:active {
 /* @media only screen and (min-width: 576px) { 
 } */
 /* Tablet */
-/* @media only screen and (min-width: 768px) { 
-} */
-/* Landscape Monitor BLUE */
+@media only screen and (min-width: 768px) { 
+    .header {
+        /* display: flex;
+        flex-direction: column; */
+        width:90vw;
+        height:auto;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2vh;
+    }
+    
+    .diamond {
+        display: inline;
+        padding-left: 40px;
+        width: 13vmax;
+        height:auto;
+    } 
+
+    .collection-container {
+        margin-top: 4vh;
+    }
+}
+/* Landscape Monitor  */
 @media only screen and (min-width: 768px) and (max-height: 1081px) { 
 
     .asset-view-image-container {
         justify-content: flex-end;
-
     }
     
     .asset-view-image { 
@@ -571,7 +583,7 @@ li a:active {
         display: inline;
         /* margin-left: 5vw;  */
         padding-left: 40px;
-        width: 15vw;
+        width: 12vmax;
         height:auto;
     }    
 
@@ -595,7 +607,7 @@ li a:active {
         height: 6vmin;
         transition: border 0.1s, color 0.1s;
         padding: 0.5rem 1.5rem;
-                
+    
     }
 
     .collection-container {
@@ -604,7 +616,7 @@ li a:active {
         height:100%;
         min-height:40vh;
         display: grid;
-        padding: 2rem;
+        padding: 2.5rem;
         gap:2rem;
         /* background: black; */
         border: 4px orange solid;
@@ -628,10 +640,9 @@ li a:active {
     }
 
     .home-description {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-style: italic;
+        font-family: Roboto, sans-serif;
         color: white;
-        font-size: 1.5vmax;
+        font-size: 1.25vmax;
         text-align: center;
         margin: 3vh 10vw;
         z-index: 1;
@@ -645,7 +656,7 @@ li a:active {
         position: absolute;
         width: 100vw;
         height: 100vh;
-        z-index: 0;
+        z-index: -3;
         pointer-events: none;
     }
 
@@ -656,7 +667,7 @@ li a:active {
         height: auto;
         align-items: center;
         justify-content: center;
-        z-index: -1;
+        z-index: -3;
         object-fit: cover;
 
     }
@@ -664,12 +675,8 @@ li a:active {
 
 }
 
- /* Portrait Monitor GREEN */
+ /* Portrait Monitor  */
  @media only screen and (min-height: 1081px) and (max-width: 1200px) { 
-    
-    body {
-        background: green;
-    }
 
     .asset-view-image-container {
         justify-content: center;
@@ -687,10 +694,9 @@ li a:active {
     }
 
     .asset-view-container {
-
+        height: 97vh;
         flex-direction: column;
         justify-content: center;
-        border: 4px silver solid;
     }
 
     .asset-properties {
@@ -702,12 +708,14 @@ li a:active {
 
     .asset-properties .name {
         padding: 0px 0.5rem;
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .asset-properties .username {
         padding: 0px 0.5rem;
     }
+
+
 
     .flex-row {
         justify-content: flex-start;

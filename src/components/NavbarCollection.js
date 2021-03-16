@@ -10,7 +10,7 @@ export default function NavbarCollection( { clearCollection }) {
             <div className='navbar-collection' id='top'>
                 <ul>
                     <li><Link className='nav-link' to='/'>trnkt</Link></li>
-                    <li><Link className='nav-link' to='/explore'>Explore</Link></li>
+                    <li><Link className='button button-explore' to='/explore'>Explore</Link></li>
 
                     <li><a onClick={clearCollection} className="button ghost">Clear Collection</a></li> 
 

@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# 'trnkt '
+### This app is a randomized art viewer and object collector that exposes the user to the funky world of non-fungible tokens with the help of the opensea.io API.
+----
+![Screen Shot 2021-03-16 at 8 33 44 AM](https://user-images.githubusercontent.com/50030252/111339155-89efed80-8645-11eb-88e1-c9a16fd93e96.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+#### A non-fungible token (NFT) is a digital file whose unique identity and ownership are verified on a blockchain.  Because they are unique items, artists are making digital art and selling it on the crypto market.  This app, 'Trinket', is a little toy designed to help you check out these little digital works of art.  NOTE:  The content is very unregulated and some is NSFW.
+----
 
-In the project directory, you can run:
+## How to Use This App
+#### Click the randomize button to return some NFT's.  Click on any of them to view details, and click the purple button to add them to your Collection.  You can view you Collection at any time by clicking the button at the top of the navbar.
 
-### `npm start`
+----
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Development Screenshots
+<img width="1440" alt="Screen Shot 2021-03-10 at 8 36 55 PM" src="https://user-images.githubusercontent.com/50030252/111339018-69279800-8645-11eb-9833-cd2f9222058b.png">
+<img width="1417" alt="Screen Shot 2021-03-14 at 3 27 15 AM" src="https://user-images.githubusercontent.com/50030252/111339088-793f7780-8645-11eb-8425-a55263951138.png">
+<img width="1412" alt="Screen Shot 2021-03-16 at 10 44 54 AM" src="https://user-images.githubusercontent.com/50030252/111338138-b1928600-8644-11eb-9d27-10675badb03c.png">
+<img width="1438" alt="Screen Shot 2021-03-16 at 3 52 51 AM" src="https://user-images.githubusercontent.com/50030252/111339464-c7ed1180-8645-11eb-89ff-e9e3c1867072.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Technologies Used
+#### React.js | React Router | CSS
 
-### `npm test`
+## Contribution guidelines
+#### Anyone is welcome to edit or amend this code in any way.  In particular, I welcome any improvements in commenting and documentation, helping with encapsulation, and reducing any redudancies.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Installation instructions
+#### To use the application, simply fork and clone this repository and double-click index.html.  Or, visit https://trnkt.herokuapp.com/ to use the deployed version.

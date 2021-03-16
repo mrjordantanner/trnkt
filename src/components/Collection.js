@@ -13,7 +13,7 @@ export default function Collection( { collection, removeFromCollection }) {
 
     return (
         <div className='collection-wrapper'>
-        <HeaderCollection heading={'COLLECTION'} subheading={"Admire your favorite NFT\'s"} image={diamond} />
+        <HeaderCollection heading={'COLLECTION'} subheading={'Admire your NFTs'} image={diamond} />
             <div className='collection-container'>
                 {collection.map((asset) => {
                     return <Card asset={asset} key={asset.id} removeFromCollection={removeFromCollection} />

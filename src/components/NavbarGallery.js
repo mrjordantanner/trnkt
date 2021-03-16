@@ -11,7 +11,7 @@ export default function NavbarGallery( { randomizeOffset }) {
             {/* <div className='navbar-stripe'></div> */}
             <ul>
                 <li><Link className='nav-link' to='/'>trnkt</Link></li>
-                <li><Link className='nav-link' to='/collection'>Collection</Link></li>
+                <li><Link className='button button-collection' to='/collection'>Collection</Link></li>
 
 				<li>
 					<a onClick={randomizeOffset} className='button filled'>

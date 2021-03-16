@@ -6,7 +6,6 @@ import NavbarGallery from './components/NavbarGallery';
 import NavbarCollection from './components/NavbarCollection';
 import Gallery from './components/Gallery';
 import Collection from './components/Collection';
-// import About from './components/About';
 import AssetView from './components/AssetView';
 import Home from './components/Home';
 import Api, { DIRECTION } from './utils/api';
@@ -55,18 +54,12 @@ function App() {
 
   // Collection 
     function addToCollection(asset) {
-      console.log(localCollection.length);
       if (!localCollection.includes(asset)) {
           asset.inCollection = true;
           localCollection.push(asset);
-          console.log(`LocalCollection: ${localCollection}`)
           setCollection(localCollection);
           writeCollectionData();
       }
-      else {
-        console.log('Collection already includes this asset');
-      }
-
     }
 
     function clearCollection() {

@@ -8,8 +8,8 @@ export default function NavbarAsset() {
         <div className='navbar-container'>
             <div className='navbar-asset' >
                 <ul>
-                   <li><Link className='nav-link' to='/explore'>Explore</Link></li>
-                   <li><Link className='nav-link' to='/collection'>Collection</Link></li>
+                   <li><Link className='button button-explore' to='/explore'>Explore</Link></li>
+                   <li><Link className='button button-collection' to='/collection'>Collection</Link></li>
                 </ul>
             </div>
         </div>
