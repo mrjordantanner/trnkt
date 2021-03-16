@@ -6,7 +6,8 @@ export default function NavbarAsset( {  randomizeOffset, setData  }) {
 
     return (
         <div className='navbar-asset' >
-              <Link className='nav-link' to='/browse'>BACK</Link>
+              <Link className='nav-link' to='/browse'>Explore</Link>
+              <Link className='nav-link' to='/collection'>Collection</Link>
         </div>
       
     )

@@ -11,7 +11,7 @@ export default function Traits( { asset } ) {
 			<div className='flex-row'>Traits</div>
 			<ul className='traits-list'>
 				{asset.traits.map((trait) => {
-					return <li key={trait.type}>{trait.type}: {trait.value}</li>;
+					return trait ? <li key={[trait.type, asset.id]}>{trait.type}: {trait.value}</li> : null;
 				})}
 			</ul>
 		</>

@@ -8,20 +8,22 @@ import Description from './assetProperties/Description';
 import Price from './assetProperties/Price';
 import Traits from './assetProperties/Traits';
 import Loading from './Loading';
-// import Collection from './assetProperties/Collection';
 
 // display component that renders details about an individual asset
 // includes large image, title, artist name, price, and other details
 
-export default function AssetView({ data, match }) {
+export default function AssetView({ data, match, addToCollection, removeFromCollection }) {
 	const [asset, setAsset] = useState(null);
 
 	useEffect(() => {
-		const id = match.params.id;
-		const tempAsset = findAsset(id);
-		setAsset(tempAsset);
-		// console.log(`Viewing ${id}`);
-	}, []);
+		if (!asset) {
+			const id = match.params.id;
+			const tempAsset = findAsset(id);
+			setAsset(tempAsset);
+		}
+
+	// console.log(`Viewing ${id}`);
+	}, [asset]);
 
 	//change this to call the API again for this individual asset
 	// Would ensure that it always displays the correct one, 
@@ -40,6 +42,21 @@ export default function AssetView({ data, match }) {
 		);
 	}
 
+	function add() {
+		addToCollection(asset);
+		setAsset(asset);
+
+	}
+
+	function remove() {
+		removeFromCollection(asset);
+		setAsset(asset);
+
+
+	}
+
+
+
 	return (
 		//#region [Blue]
 		<>
@@ -50,6 +67,11 @@ export default function AssetView({ data, match }) {
 					<Name asset={asset} />
 					<Creator asset={asset} />
 					<Description asset={asset} />
+
+					{!asset.inCollection ? 
+						<div onClick={add} className='button-round filled add'>+</div> :
+						<div onClick={remove} className='button-round ghost remove'>-</div>
+					}
 
 					<ul className='property-list'>
 						<Traits asset={asset} />

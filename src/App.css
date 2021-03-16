@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 * {
     box-sizing: border-box;
 }
 
 html, body {
-    background: #000000;
+    background: #0f010d;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -99,6 +100,9 @@ a:hover {
 } */
 
 
+
+
+
 li {
     list-style: none;
     display: inline;
@@ -129,9 +133,10 @@ li a:active {
     /* border: 1px cyan solid; */
 }
 .home-logo {
-    font-size: 20vmin;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: purple;
+    font-size: 15vmin;
+    font-family: 'Poiret One', cursive;
+    color: black;
+    z-index: 1;
 }
 
 .loading-logo {
@@ -149,21 +154,53 @@ li a:active {
 .home-description {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
-    color: orange;
-    font-size: 2vmax;
+    color: white;
+    font-size: 1.5vmax;
     text-align: center;
     margin: 3vh 10vw;
+    z-index: 1;
 }
+
+
+.gem-container {
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    border: cyan 2px solid;
+    pointer-events: none;
+}
+
+.gem-gif {
+    
+    background: transparent;
+    /* border: 1px red solid; */
+    margin: auto auto 30vw auto;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1, 1);
+
+    /* opacity: 0.8; */
+    z-index: -1;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+
 
 /* BUTTONS */
 .nav-link {
-    color: orange;
+    color: white;
     font-size: 1rem;
-    text-transform: uppercase;
 }
 
 .nav-link:hover {
-    color: white;
+    color: orange;
 }
 
 .nav-link:active {
@@ -208,12 +245,69 @@ li a:active {
     background: white;
 }
 
+.explore-button {
+    border: 1px violet solid;
+    padding: 2vw;
+}
 
+
+.button {
+    width: 10vw;
+    height: 6vw;
+    border-radius: 5px;
+    transition: width 0.1s, height 0.1s, border 0.1s, color 0.1s;
+}
+
+.button .ghost {
+    background: transparent;
+    color: orange;
+    border: orange 6px solid;
+}
+
+.button .ghost:hover {
+    width: 9.5vw;
+    height: 5.5vw;
+    color: white;
+    border: white 4px solid;
+}
+
+.button .ghost:active {
+    width: 9vw;
+    height: 5vw;
+    color: yellow;
+    border: yellow 4px solid;
+}
+
+.button-round {
+    display: flex;
+    border-radius: 50%;
+    height:50px;
+    width:50px;
+    font-size: 3rem;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.button-round:hover {
+    color: black;
+    border: white 4px solid;
+}
+
+.filled {
+    background: orange;
+    color: black;
+}
+
+.filled:hover {
+    background: white;
+}
 
 /* region [Purple] */
 /* GALLERY VIEW */
 .gallery-wrapper {
-
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -279,6 +373,38 @@ li a:active {
 .id {
     font-size: 0.7rem;
     color: violet;
+}
+
+.collection-wrapper {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-container {
+    margin-top:5rem;
+    width:70%;
+    height:100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.collection-card {
+    display: flex;
+    height: 40vh;
+    max-height: 350px; 
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background: rgb(31, 0, 30);
+    user-select: none;
+    border: violet 1px solid;
+    opacity: 0.9;
+    transition: opacity 0.15s;
 }
 
 /* endregion */

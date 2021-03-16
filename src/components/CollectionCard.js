@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-export default function Card( { asset } ) {
+export default function CollectionCard( { asset, removeFromCollection } ) {
 	// Display component that represents the asset while in gallery view
 	// Contains image, title, price, artist name, onClick takes user to details route
-	// console.log(`cardData1: ${data.assets[0].name}`);
 
 	if (!asset) {
-		// console.log('loading');
-		return( null
+		console.log('loading');
+		return(
 			// TODO: Add CSS animation / spinner
-			// <h2>LOADING</h2>
+			<h2>LOADING</h2>
 		)
 	}
 
 	return (
 		//#region [Blue]
-
-		<div className='collection-card'>
-			<Link to={`/assets/${asset.id}`} key={asset.id}>
+		<div className='card'>
+			{/* <Link to={`/assets/${asset.id}`} key={asset.id}> */}
+            <Link to={`/assets/${asset.id}`} key={asset.id}>
 				<div className='card-image-container'>
 					<img className='card-image' src={asset.thumbnailUrl} alt={asset.name} />
 				</div>
@@ -27,6 +26,7 @@ export default function Card( { asset } ) {
 					<h2 className='name'>{asset.name}</h2>
 					<h3 className='username'>{asset.creator}</h3>
 					<p className='id'>{asset.id}</p>
+                    <div onClick={() => {removeFromCollection(asset)}} className='button-round ghost add-remove-toggle'>-</div>
 				</div>
 			</Link>
 		</div>
