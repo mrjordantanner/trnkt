@@ -1,3 +1,4 @@
+
 # 'trnkt '
 ### This app is a randomized art viewer and object collector that exposes the user to the funky world of non-fungible tokens with the help of the opensea.io API.
 ----
@@ -27,3 +28,4 @@
 
 ## Installation instructions
 #### To use the application, simply fork and clone this repository and double-click index.html.  Or, visit https://trnkt.herokuapp.com/ to use the deployed version.
+
