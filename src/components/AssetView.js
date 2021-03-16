@@ -1,4 +1,3 @@
-
 import '../App.css';
 import React, { useState, useEffect } from 'react';
 import AssetImage from './assetProperties/AssetImage';
@@ -10,14 +9,16 @@ import Traits from './assetProperties/Traits';
 import Loading from './Loading';
 import { api } from '../App';
 
+
 // display component that renders details about an individual asset
 // includes large image, title, artist name, price, and other details
 
-export default function AssetView({ data, match, addToCollection, removeFromCollection }) {
+export default function AssetView({  match, addToCollection, removeFromCollection }) {
 	const [asset, setAsset] = useState(null);
 
-	let tempAsset = null;
 	useEffect(() => {
+		document.body.style.backgroundColor = 'black';
+		document.body.style.color = 'white';
 		if (!asset) {
 			const contract = match.params.contract;
 			const token = match.params.token;
@@ -34,8 +35,10 @@ export default function AssetView({ data, match, addToCollection, removeFromColl
 	}
 
 	function add() {
-		addToCollection(asset);
-		setAsset(asset);
+		if (!asset.inCollection) {
+			addToCollection(asset);
+			setAsset(asset);
+		}
 	}
 
 	function remove() {
@@ -54,9 +57,10 @@ export default function AssetView({ data, match, addToCollection, removeFromColl
 					<Creator asset={asset} />
 					<Description asset={asset} />
 
-					{!asset.inCollection ? 
-						<div onClick={add} className='button-round filled add'>+</div> :
-						<div onClick={remove} className='button-round ghost remove'>-</div>
+					{asset.inCollection ? 
+					<div onClick={remove} className='button-round ghost remove'>-</div> :
+						<div onClick={add} className='button-round filled add'>+</div> 
+						
 					}
 
 					<ul className='property-list'>
@@ -64,17 +68,13 @@ export default function AssetView({ data, match, addToCollection, removeFromColl
 						<Price asset={asset} />
 						<li className='flex-row id'>{asset.id}</li>
 					</ul>
-
-					{/* 
-					<div className='flex-row flex-center'>
+				
+					{/* <div className='flex-row flex-center'>
 						<a href={asset.externalUrl} className='button'>BUY on opensea.io</a>
 					</div> */}
 
 				</div>
 			</div>
-			{/* <div className='flex-center'>
-				<a href='#top'>Top</a>
-			</div> */}
 		</>
 	);
 }

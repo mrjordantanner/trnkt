@@ -89,12 +89,10 @@ function App() {
     }
 
     function writeCollectionData() {
-      // localStorage.setItem('collection', JSON.stringify({collection: {}}));
       localStorage.setItem('collection', JSON.stringify({collection: {collection}}));
     }
 
   function loadCollectionData() {
-    // console.log('loaded')
       const collectionString = localStorage.getItem('collection');
       if (!collectionString) {
           return null;
@@ -130,11 +128,11 @@ function App() {
 
           <Switch>
             <Route exact path='/' component={() => <Home randomizeOffset={randomizeOffset} setData={setData}/> } />
-            <Route exact path='/browse' component={() => <NavbarGallery className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/> } />
+            <Route exact path='/explore' component={() => <NavbarGallery className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/> } />
           </Switch> 
 
           <Switch>
-            <Route exact path='/browse' component={() => <Gallery data={data} /> } />
+            <Route exact path='/explore' component={() => <Gallery data={data} /> } />
           </Switch>
 
           <Switch>

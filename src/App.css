@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;700&display=swap');
 * {
     box-sizing: border-box;
 }
 
 html, body {
-    background: #0f010d;
+    /* background: #0f010d; */
+    background: #7f00d3;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
     font-size: 16px;
     /* height: 97vh; */
     height: 100%;
@@ -18,7 +20,15 @@ ul {
     padding: 0;
 }
 
-  
+.backdrop {
+    position:absolute;
+    height: 100vh;
+    width: 100vh;
+    z-index:-2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
 .center {
     display: flex;
     flex-direction: column;
@@ -54,54 +64,26 @@ a:hover {
     opacity: 1;
 }
 
-.navbar-asset {
-    height: 50px;
-    padding-left: 2vw;
 
+.navbar-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: 60px;
+    border-bottom: 1px violet solid;
 }
 
 .navbar-gallery {
-    height: 50px;
-    border-bottom: 6px violet solid;
-}
-
-/* .navbar-stripe {
-    display:block;
-    width:100%;
-    height:58px;
-    border-bottom: 6px orange solid;
-} */
-
-.navbar ul {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.5rem 2rem;
-    margin: 0;
-    height: 80px;
-    border-bottom: 2px violet solid;
 
 }
-
-.nav-footer ul {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.5rem 2rem;
-    margin: 0;
-    height: 100px;
-
+.navbar-asset {
+    padding-left: 2vw;
 }
 
-/* .nav-footer li, a {
-    
-} */
+.navbar-collection {
 
-
-
-
+}
 
 li {
     list-style: none;
@@ -127,28 +109,14 @@ li a:active {
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-    /* border: 1px cyan solid; */
 }
+
 .home-logo {
-    font-size: 15vmin;
-    font-family: 'Poiret One', cursive;
-    color: black;
+    font-size: 20vmin;
+    color: white;
     z-index: 1;
-}
-
-.loading-logo {
-    font-size: 14vmin;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: violet;
-}
-
-.navbar-logo {
-    /* font-size: 1.2rem;
-    font-family:Arial, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-    color: violet;
 }
 
 .home-description {
@@ -175,22 +143,58 @@ li a:active {
 }
 
 .gem-gif {
-    
     background: transparent;
-    /* border: 1px red solid; */
     margin: auto auto 30vw auto;
     width: 50%;
     height: auto;
     align-items: center;
     justify-content: center;
-    transform: scale(1, 1);
-
-    /* opacity: 0.8; */
     z-index: -1;
-    object-fit: contain;
-    pointer-events: none;
+    object-fit: cover;
+    /* pointer-events: none; */
 }
 
+.invert {
+    filter: invert(1);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width:70vw;
+    max-height:400px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    /* border: 4px red solid; */
+
+}
+
+/* .diamond {
+    display: block;
+    width: 150px;
+    margin-left: 5vw;
+    padding-left: 40px;
+    pointer-events: none;
+} */
+
+
+
+.heading {
+    margin-left: 2vw;
+    font-weight: 700;
+    font-size: 5vmax;  
+}
+
+.subheading {
+    font-size: 3vmin;
+    margin-left: 5vw;
+    font-style: italic;
+}
+
+.header ul {
+    display: block;
+}
 
 
 /* BUTTONS */
@@ -207,75 +211,33 @@ li a:active {
     color: yellow;
 }
 
-.button {
-    border: 1px violet solid;
-    background: transparent;
-    width: 50%;
-    height: 2rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    color: white;
-}
-
-.button:hover {
-    border: 1px white solid;
-    background: white;
-}
-
 .button-home {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20vmax;
-    height: 12vmin;
-    color: orange;
-    border: orange 4px solid;
-    margin: 3rem;
+    color: violet;
+    border: violet 4px solid;
+    margin-bottom: 5vh;
     
-}
-
-.button-home:hover {
-    border: white 4px solid;
-    color: orange;
-}
-
-.button-home:active {
-    border: yellow 4px solid;
-    color: yellow;
-    background: white;
-}
-
-.explore-button {
-    border: 1px violet solid;
-    padding: 2vw;
 }
 
 
 .button {
-    width: 10vw;
-    height: 6vw;
-    border-radius: 5px;
-    transition: width 0.1s, height 0.1s, border 0.1s, color 0.1s;
+    width: 50px;
+    height: 6vmin;
+    transition: border 0.1s, color 0.1s;
+    padding: 0.35rem 1.25rem;
+
 }
 
-.button .ghost {
-    background: transparent;
+.ghost {
     color: orange;
-    border: orange 6px solid;
+    border: orange 2px solid;
 }
 
-.button .ghost:hover {
-    width: 9.5vw;
-    height: 5.5vw;
-    color: white;
-    border: white 4px solid;
-}
-
-.button .ghost:active {
-    width: 9vw;
-    height: 5vw;
-    color: yellow;
-    border: yellow 4px solid;
+.ghost:hover {
+    background: orange;
+    color: black;
 }
 
 .button-round {
@@ -288,13 +250,20 @@ li a:active {
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
-    
 }
 
-.button-round:hover {
+.add {
+    background: orange;
     color: black;
-    border: white 4px solid;
+    border: orange 2px solid;
 }
+
+.remove {
+    background: transparent;
+    color: orange;
+    border: orange 2px solid;
+}
+
 
 .filled {
     background: orange;
@@ -317,8 +286,6 @@ li a:active {
     margin-top:1.5rem;
     width:95%;
     height:100%;
-    /* margin: 25px;
-    padding: 25px; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
@@ -331,11 +298,11 @@ li a:active {
     justify-content: space-between;
     padding: 0.5rem;
     margin: 0.5rem;
-    background: rgb(31, 0, 30);
+    background: transparent;
     user-select: none;
-    border: violet 1px solid;
-    opacity: 0.9;
-    transition: opacity 0.15s;
+    border: #333333 1px solid;
+    opacity: 0.8;
+    transition: opacity 0.2s;
 }
 
 .card-image-container {
@@ -345,6 +312,7 @@ li a:active {
     height: auto;
     max-height: 200px;
     width:100%;
+    
 }
 
 .card-image {
@@ -362,7 +330,6 @@ li a:active {
     border: white 1px solid;
     cursor: pointer;
     opacity: 1;
-    background: rgb(62, 0, 61);
 }
 
 .card:active {
@@ -385,26 +352,16 @@ li a:active {
 }
 
 .collection-container {
-    margin-top:5rem;
-    width:70%;
+    margin-top:3rem;
+    width:90%;
     height:100%;
     display: grid;
+    padding: 2rem;
+    margin-top: 50px;
+    gap: 2rem;
+    background: black;
+    border: 4px orange solid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
-
-.collection-card {
-    display: flex;
-    height: 40vh;
-    max-height: 350px; 
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    background: rgb(31, 0, 30);
-    user-select: none;
-    border: violet 1px solid;
-    opacity: 0.9;
-    transition: opacity 0.15s;
 }
 
 /* endregion */
@@ -412,24 +369,20 @@ li a:active {
 
 
 
-
-
-
 /* region [Blue] */
 /* ASSET VIEW */
 .property-list {
-    /* border: 2px orange solid; */
+    border: 1px #111111 solid;
+    background: rgba(75, 27, 75, 0.26);
 }
 
 .traits-list {
-    /* border: 2px cyan solid; */
     display: block;
 }
 
 .asset-view-container {
     height: 100%;
     background: transparent;
-    /* border-bottom: red 4px solid; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -442,7 +395,6 @@ li a:active {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly; 
-    /* border: 2px orange solid; */
 }
 
 .asset-properties .name {
@@ -452,17 +404,14 @@ li a:active {
     color: white;
     text-align: center;
     padding: 0 6rem;
-    /* border: 1px gray solid; */
 }
 
-.asset-properties .username {
-    text-align: center;
-    font-size: 1.25rem;
+.username {
+    text-align: left;
+    font-size: 1rem;
     font-weight: bold;
-    color: rgb(0, 145, 255);
-    /* border: 1px gray solid; */
+    color: orange;
 }
-
 
 .asset-properties .description {
     font-size : 1rem;
@@ -483,9 +432,7 @@ li a:active {
     padding: 0 1rem;
     display: inline;
     font-size: 1rem;
-    /* font-weight: bold; */
     color: white;
-    /* justify-self: flex-end; */
 }
 
 .asset-view-image-container {
@@ -493,14 +440,12 @@ li a:active {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* border: 4px red solid; */
 }
 
 .asset-view-image { 
     max-width:100%;
     width: 100%;
     object-fit: contain;
-    /* border: 4px yellow solid; */
 }
 /* endregion */
 
@@ -558,26 +503,12 @@ li a:active {
 @media only screen and (min-width: 768px) and (max-height: 1081px) { 
 
     .asset-view-image-container {
-        /* width:100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        border: 4px red solid; */
         justify-content: flex-end;
 
     }
     
     .asset-view-image { 
-        /* max-width:100%;
-        width: 100%;
-        object-fit: contain;
-        border: 4px yellow solid; */
         height: 100%;
-
-    }
-
-    body {
-        /* background: blue; */
     }
 
     .asset-properties {
@@ -585,7 +516,6 @@ li a:active {
         align-items: flex-start;
         justify-content: center;
         text-align: left;
-        /* background: purple; */
     }
 
     .asset-properties .name {
@@ -620,7 +550,7 @@ li a:active {
         font-size: 1.25rem;
     }
 
-    .navbar-gallery, .navbar-asset {
+    .navbar-gallery, .navbar-asset, .navbar-collection {
         padding-left: 12vw;
     }
 
@@ -628,7 +558,111 @@ li a:active {
         padding: 2rem;
       }
 
- }
+    .header {
+        display: flex;
+        flex-direction: row;
+        width:70vw;
+        height:auto;
+        justify-content: flex-start;
+        margin-top: 4vh;
+    }
+    
+    .diamond {
+        display: inline;
+        /* margin-left: 5vw;  */
+        padding-left: 40px;
+        width: 15vw;
+        height:auto;
+    }    
+
+    .heading {
+        margin: 0 0 1vh 2vw;
+        font-weight: 700;
+        font-size: 6vw;  
+    }
+    
+    .subheading {
+        font-size: 3vmin;
+        margin-left: 5vw;
+        color: white; 
+        font-style: italic;
+        display:none;
+    }
+
+
+    .button {
+        width: auto;
+        height: 6vmin;
+        transition: border 0.1s, color 0.1s;
+        padding: 0.5rem 1.5rem;
+                
+    }
+
+    .collection-container {
+        margin-top:3rem;
+        width:70%;
+        height:100%;
+        min-height:40vh;
+        display: grid;
+        padding: 2rem;
+        gap:2rem;
+        /* background: black; */
+        border: 4px orange solid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+
+    .home-container {
+        height: 93vh;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .home-logo {
+        font-size: 20vmin;
+        color: white;
+        z-index: 1;
+    }
+
+    .home-description {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: italic;
+        color: white;
+        font-size: 1.5vmax;
+        text-align: center;
+        margin: 3vh 10vw;
+        z-index: 1;
+    }
+
+
+    .gem-container {
+        background: transparent;
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .gem-gif {
+        background: transparent;
+        margin: auto auto 30vw auto;
+        width: 50%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
+        object-fit: cover;
+
+    }
+        
+
+}
 
  /* Portrait Monitor GREEN */
  @media only screen and (min-height: 1081px) and (max-width: 1200px) { 
@@ -680,7 +714,6 @@ li a:active {
     }
 
     .card {
-
         max-height: 350px; 
         height: 300px;
     }

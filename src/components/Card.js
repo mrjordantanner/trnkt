@@ -11,7 +11,7 @@ export default function Card( { asset } ) {
 
 	return (
 		//#region [Blue]
-		<div className='collection-card'>
+		<div className='card'>
 			 <Link to={`/asset/${asset.contractAddress}/${asset.tokenID}`} key={asset.id}>
 
 				<div className='card-image-container'>
@@ -20,7 +20,7 @@ export default function Card( { asset } ) {
 
 				<div className='card-details'>
 					<h2 className='name'>{asset.name}</h2>
-					<h3 className='username'>{asset.creator}</h3>
+					<p className='username'>{asset.creator}</p>
 					<p className='id'>{asset.id}</p>
 				</div>
 			</Link>

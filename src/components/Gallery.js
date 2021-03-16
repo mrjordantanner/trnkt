@@ -1,15 +1,19 @@
 import React from 'react';
 import Card from './Card'
 import '../App.css';
-// gallery route that is the main view of the App
-// uses css grid to display art assets or cards
-// clicking on a card takes user to details page
+import diamond from '../images/diamond.svg';
+import HeaderGallery from './HeaderGallery';
+import gem2 from '../images/gem2.png';
 
 export default function Gallery( { data } ) {
+
+	document.body.style.backgroundColor = 'black';
+	document.body.style.color = 'white';
 
 	//#region [Blue]
 	return (
 		<div className='gallery-wrapper'>
+			<HeaderGallery heading={'EXPLORE'} subheading={"Dive in to the strange world of NFT\'s"} image={diamond} />
 			<div className='gallery-container'>
 				{data.map((asset) => {
 					return <Card asset={asset} key={asset.id} />;
