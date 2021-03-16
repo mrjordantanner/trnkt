@@ -8,6 +8,7 @@ import Description from './assetProperties/Description';
 import Price from './assetProperties/Price';
 import Traits from './assetProperties/Traits';
 import Loading from './Loading';
+import { api } from '../App';
 
 // display component that renders details about an individual asset
 // includes large image, title, artist name, price, and other details
@@ -15,26 +16,16 @@ import Loading from './Loading';
 export default function AssetView({ data, match, addToCollection, removeFromCollection }) {
 	const [asset, setAsset] = useState(null);
 
+	let tempAsset = null;
 	useEffect(() => {
 		if (!asset) {
-			const id = match.params.id;
-			const tempAsset = findAsset(id);
-			setAsset(tempAsset);
+			const contract = match.params.contract;
+			const token = match.params.token;
+			api.getSingleAsset(contract, token)
+			.then(setAsset)
 		}
 
-	// console.log(`Viewing ${id}`);
 	}, [asset]);
-
-	//change this to call the API again for this individual asset
-	// Would ensure that it always displays the correct one, 
-
-	function findAsset(id) {
-		return data.find((asset) => {
-			if (asset.id == id) {
-				return asset;
-			}
-		});
-	}
 
 	if (!asset) {
 		return (
@@ -45,17 +36,12 @@ export default function AssetView({ data, match, addToCollection, removeFromColl
 	function add() {
 		addToCollection(asset);
 		setAsset(asset);
-
 	}
 
 	function remove() {
 		removeFromCollection(asset);
 		setAsset(asset);
-
-
 	}
-
-
 
 	return (
 		//#region [Blue]

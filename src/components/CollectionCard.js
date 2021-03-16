@@ -1,23 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
+// import { api } from '../App';
+
 export default function CollectionCard( { asset, removeFromCollection } ) {
-	// Display component that represents the asset while in gallery view
-	// Contains image, title, price, artist name, onClick takes user to details route
+	// Display component that represents the asset while in Collection view
 
 	if (!asset) {
-		console.log('loading');
-		return(
-			// TODO: Add CSS animation / spinner
-			<h2>LOADING</h2>
-		)
+		return null;
 	}
 
 	return (
 		//#region [Blue]
 		<div className='card'>
-			{/* <Link to={`/assets/${asset.id}`} key={asset.id}> */}
-            <Link to={`/assets/${asset.id}`} key={asset.id}>
+			 <Link to={`/asset/${asset.contractAddress}/${asset.tokenID}`} key={asset.id}>
+
 				<div className='card-image-container'>
 					<img className='card-image' src={asset.thumbnailUrl} alt={asset.name} />
 				</div>

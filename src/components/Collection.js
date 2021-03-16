@@ -3,13 +3,10 @@ import CollectionCard from './CollectionCard'
 import '../App.css';
 
 
-export default function Collection( { collection, localCollection, setCollection, removeFromCollection, loadCollectionData }) {
+export default function Collection( { collection, localCollection, setCollection, removeFromCollection, loadCollectionData, api }) {
 
     useEffect(() => {
-        // if (localCollection === []) {
-        //     loadCollectionData();
-        // }
-    //    setCollection(localCollection);
+
     }, [collection])
 
 
@@ -17,7 +14,7 @@ export default function Collection( { collection, localCollection, setCollection
 		<div className='collection-wrapper'>
 			<div className='collection-container'>
 				{collection.map((asset) => {
-					return <CollectionCard asset={asset} key={asset.id} removeFromCollection={removeFromCollection}/>;
+					return <CollectionCard asset={asset} key={asset.id} removeFromCollection={removeFromCollection} />;
 				})}
 			</div>
 

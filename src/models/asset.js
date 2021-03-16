@@ -8,7 +8,6 @@ function getDescription(asset) {
 }
 
 function getThumbnail(asset) {
-    // return asset.image_thumbnail_url ? asset.image_thumbnail_url : this.getImage(asset);
     return asset.image_thumbnail_url ? asset.image_thumbnail_url : null;
 }
 

@@ -19,12 +19,17 @@ class Api {
         this.urlBase = urlBase;
     }
 
-    getSingleAsset(contract, tokenID) {
-            // urlBase/asset/contract/tokenID
-    }
+    getSingleAsset(contract, token) {
+        const url = `https://api.opensea.io/api/v1/asset/${contract}/${token}`;
 
-// look into pagination with
-// perPage, page, total
+        return fetch(url)
+            .then((res) => res.json())
+            .then((res) => new Asset(res))
+            .catch((error) => {
+                return <p>{`Error: ${error}`}</p>;
+            });
+
+    }
 
     getAssets(direction = DIRECTION.desc, offset = 0) {
 
@@ -42,7 +47,6 @@ class Api {
             .catch((error) => {
                 return <p>{`Error: ${error}`}</p>;
             });
-
     }
 }
 
