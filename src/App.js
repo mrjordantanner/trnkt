@@ -33,57 +33,57 @@ function App() {
   });
   }, [offset, limit])
 
-    if (!data) {
-      return <Loading />
-    }
+  if (!data) {
+    return <Loading />
+  }
 
-    function randomizeOffset() {
-      const rndOffset = Math.floor(Math.random() * 10000);
-      setOffset(rndOffset);
-    }
+  function randomizeOffset() {
+    const rndOffset = Math.floor(Math.random() * 10000);
+    setOffset(rndOffset);
+  }
 
-    function incrementOffset() {
-      const tempOffset = offset + 50;
-      setOffset(tempOffset);
-    }
+  function incrementOffset() {
+    const tempOffset = offset + 50;
+    setOffset(tempOffset);
+  }
 
-    function decrementOffset() {
-      const tempOffset = offset - 50;
-      setOffset(tempOffset);
-    }
+  function decrementOffset() {
+    const tempOffset = offset - 50;
+    setOffset(tempOffset);
+  }
 
-  // Collection 
-    function addToCollection(asset) {
-      if (!localCollection.includes(asset)) {
-          asset.inCollection = true;
-          localCollection.push(asset);
-          setCollection(localCollection);
-          writeCollectionData();
-      }
+// Collection 
+  function addToCollection(asset) {
+    if (!localCollection.includes(asset)) {
+        asset.inCollection = true;
+        localCollection.push(asset);
+        setCollection(localCollection);
+        writeCollectionData();
     }
+  }
 
-    function clearCollection() {
-      if (localCollection.length > 0) {
-        localCollection.forEach((asset) => asset.inCollection = false);
-      }
-      localCollection = [];
-      localCollection.length = 0;
-      localStorage.clear()
-      setCollection(localCollection);
+  function clearCollection() {
+    if (localCollection.length > 0) {
+      localCollection.forEach((asset) => asset.inCollection = false);
     }
+    localCollection = [];
+    localCollection.length = 0;
+    localStorage.clear()
+    setCollection(localCollection);
+  }
 
-    function clearLocalCollection() {
-      if (localCollection.length > 0) {
-        localCollection.forEach((asset) => asset.inCollection = false);
-      }
-      localCollection = [];
-      localCollection.length = 0;
-      setCollection(localCollection);
+  function clearLocalCollection() {
+    if (localCollection.length > 0) {
+      localCollection.forEach((asset) => asset.inCollection = false);
     }
+    localCollection = [];
+    localCollection.length = 0;
+    setCollection(localCollection);
+  }
 
-    function writeCollectionData() {
-      localStorage.setItem('collection', JSON.stringify({collection: {collection}}));
-    }
+  function writeCollectionData() {
+    localStorage.setItem('collection', JSON.stringify({collection: {collection}}));
+  }
 
   function loadCollectionData() {
       const collectionString = localStorage.getItem('collection');
@@ -100,7 +100,6 @@ function App() {
         }
         setCollection(localCollection);
       })
-      
   }
     
   function removeFromCollection(asset) {
@@ -112,7 +111,6 @@ function App() {
     }
   }
 
- 
   return (
     //#region [Blue]
 		<>

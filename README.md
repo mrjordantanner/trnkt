@@ -4,6 +4,8 @@
 ----
 ![Screen Shot 2021-03-16 at 8 33 44 AM](https://user-images.githubusercontent.com/50030252/111339155-89efed80-8645-11eb-88e1-c9a16fd93e96.png)
 
+## Live App
+## https://trnkt.herokuapp.com/
 
 #### A non-fungible token (NFT) is a digital file whose unique identity and ownership are verified on a blockchain.  Because they are unique items, artists are making digital art and selling it on the crypto market.  This app, 'Trinket', is a little toy designed to help you check out these little digital works of art.  NOTE:  The content is very unregulated and some is NSFW.
 ----
