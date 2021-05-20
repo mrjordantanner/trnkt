@@ -5,8 +5,8 @@
 }
 
 html, body {
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 16px;
@@ -115,7 +115,6 @@ li a:active {
     margin: 2rem;
 }
 
-
 .gem-container {
     /* background: transparent; */
     display: flex;
@@ -156,7 +155,6 @@ li a:active {
 
 }
 
-
 .heading {
     margin-left: 2vw;
     font-weight: 700;
@@ -189,6 +187,9 @@ li a:active {
 }
 
 .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: auto;
     height: 6vmin;
     transition: border 0.1s, color 0.1s;
@@ -207,13 +208,11 @@ li a:active {
     color: black;
 }
 
-
-
 .button-round {
     display: flex;
     border-radius: 50%;
-    height:7vmax;
-    width:7vmax;
+    height:2.5rem;
+    width:2.5rem;
     font-size: 64px;
     text-align: center;
     flex-direction: column;

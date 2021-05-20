@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import gem from '../images/gem.gif';
 
-
-
 export default function Home( { randomizeOffset}) {
 
 	useEffect(() => {

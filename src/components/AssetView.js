@@ -9,6 +9,7 @@ import Traits from './assetProperties/Traits';
 import Loading from './Loading';
 import { api } from '../App';
 
+// Show route for each individual asset
 export default function AssetView({  match, addToCollection, removeFromCollection }) {
 	const [asset, setAsset] = useState(null);
 
@@ -21,7 +22,6 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 			api.getSingleAsset(contract, token)
 			.then(setAsset)
 		}
-
 	}, [asset]);
 
 	if (!asset) {
@@ -63,9 +63,8 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 					<div onClick={remove} className='button-round remove'>-</div> :
 						<div onClick={() => {
 							add();
-
+							// TODO: toggle 
 						}} className='button-round add'>+</div> 
-						
 					}
 
 				</div>

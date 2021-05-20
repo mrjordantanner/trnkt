@@ -18,9 +18,6 @@ export default function NavbarGallery( { randomizeOffset }) {
 						R A N D O M I Z E
 					</a>
 				</li>
-                {/* <li><a onClick={incrementOffset} className="button ghost">Previous</a></li> 
-                <li><a onClick={randomizeOffset} className="button filled">EXPLORE</a></li>
-                <li><a onClick={decrementOffset} className="button ghost">Next</a></li> */}
             </ul>
         </div>
         </div>
