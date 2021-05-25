@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
 export default function Card( { asset } ) {
 	// Display component that represents the asset while in Explore/Gallery view
 	// Contains image, title, price, artist name, onClick takes user to details route
@@ -14,8 +13,8 @@ export default function Card( { asset } ) {
 		<div className='card'>
 			 <Link to={`/asset/${asset.contractAddress}/${asset.tokenID}`} key={asset.id}>
 
-				<div className='card-image-container'>
-					<img className='card-image' src={asset.thumbnailUrl} alt={asset.name} />
+				<div className='card-image'>
+					<img src={asset.thumbnailUrl} alt={asset.name} />
 				</div>
 
 				<div className='card-details'>

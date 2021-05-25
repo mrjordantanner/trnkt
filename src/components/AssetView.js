@@ -1,9 +1,6 @@
-import '../App.css';
 import React, { useState, useEffect } from 'react';
 import AssetImage from './assetProperties/AssetImage';
 import Name from './assetProperties/Name';
-import Creator from './assetProperties/Creator';
-import Description from './assetProperties/Description';
 import Price from './assetProperties/Price';
 import Traits from './assetProperties/Traits';
 import Loading from './Loading';
@@ -45,27 +42,31 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 	return (
 		//#region [Blue]
 		<>
-			<div className='asset-view-container'>
+			<div className='asset-view-container wireframe'>
 				<AssetImage asset={asset} />
 
-				<div className='asset-properties'>
+				<div className='asset-properties wireframe'>
 					<Name asset={asset} />
-					<Creator asset={asset} />
-					<Description asset={asset} />
+					<h2 className='username wireframe'>{asset.creator}</h2>
+					<p className='description wireframe'>{asset.description}</p>
 
-					<ul className='property-list'>
+					<ul className='property-list wireframe'>
 						<Traits asset={asset} />
 						<Price asset={asset} />
 						<li className='flex-row id'>{asset.id}</li>
 					</ul>
 
-					{asset.inCollection ? 
-					<div onClick={remove} className='button-round remove'>-</div> :
-						<div onClick={() => {
-							add();
-							// TODO: toggle 
-						}} className='button-round add'>+</div> 
-					}
+					<div class='collection-button wireframe'>
+						{asset.inCollection ? 
+						<div onClick={remove} className='button-round remove'>-</div> :
+							<div onClick={() => {
+								add();
+								// TODO: toggle 
+							}} className='button-round add'>+</div> 
+						}
+					</div>
+
+
 
 				</div>
 			</div>

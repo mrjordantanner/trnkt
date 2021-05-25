@@ -5,13 +5,13 @@ export default function Price( { asset } ) {
 	if (!asset.price) {
 		return (
 		<li className='flex-row'>
-			<p>unsold</p>
+			<h3>Price: Unsold</h3>
 		</li>
 		)
 	}
     return (
 		<li className='flex-row'>
-			<p>Last Trade Price</p>
+			<h3>Last Trade Price</h3>
 			<p className='price'>{asset.price}</p>
 		</li>
 	);

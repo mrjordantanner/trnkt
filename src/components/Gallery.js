@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from './Card'
-import '../App.css';
 import diamond from '../images/diamond.svg';
 import HeaderGallery from './HeaderGallery';
 
