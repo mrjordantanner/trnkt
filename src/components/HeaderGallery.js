@@ -10,7 +10,6 @@ export default function HeaderGallery({
 			<img className='diamond invert' src={image} />
 			<div className='heading'>{heading}</div>
 			<div className='subheading'>{subheading}</div>
-
 		</div>
 	);
 }

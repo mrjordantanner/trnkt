@@ -42,15 +42,15 @@ function App() {
     setOffset(rndOffset);
   }
 
-  function incrementOffset() {
-    const tempOffset = offset + 50;
-    setOffset(tempOffset);
-  }
+  // function incrementOffset() {
+  //   const tempOffset = offset + 50;
+  //   setOffset(tempOffset);
+  // }
 
-  function decrementOffset() {
-    const tempOffset = offset - 50;
-    setOffset(tempOffset);
-  }
+  // function decrementOffset() {
+  //   const tempOffset = offset - 50;
+  //   setOffset(tempOffset);
+  // }
 
 // Collection 
   function addToCollection(asset) {
@@ -113,39 +113,35 @@ function App() {
 
   return (
     //#region [Blue]
-		<>
+
+      <>
 			<main>
         <Router>
 
           <Switch>
             <Route exact path='/' component={() => <Home randomizeOffset={randomizeOffset} setData={setData}/> } />
-            <Route exact path='/explore' component={() => <NavbarGallery className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/> } />
+            <Route path='/explore' component={() => <NavbarGallery className='navbar' randomizeOffset={randomizeOffset}/> } />
+            <Route path='/asset' component={() => <NavbarAsset className='navbar' randomizeOffset={randomizeOffset}/> } />   
+            <Route exact path='/collection' component={() => <NavbarCollection className='navbar' clearCollection={clearCollection}/> } />  
           </Switch> 
 
           <Switch>
-            <Route exact path='/explore' component={() => <Gallery data={data} /> } />
-          </Switch>
-
-          <Switch>
-            <Route path='/asset' component={() => <NavbarAsset className='navbar' incrementOffset={incrementOffset} decrementOffset={decrementOffset} randomizeOffset={randomizeOffset}/> } />      
+            <Route path='/explore' component={() => <Gallery data={data} /> } />
           </Switch>
 
           <Switch>
             <Route path='/asset/:contract/:token' component={(routerProps) => <AssetView data={data} match={routerProps.match} addToCollection={addToCollection} removeFromCollection={removeFromCollection} /> } /> 
-          </Switch>
+           </Switch>
 
-          <Switch>
-            <Route exact path='/collection' component={() => <NavbarCollection className='navbar' clearCollection={clearCollection}/> } />      
-          </Switch>
-
-          <Switch>
-            <Route exact path='/collection' component={() => <Collection collection={localCollection} localCollection={localCollection} addToCollection={addToCollection} removeFromCollection={removeFromCollection} /> } /> 
+           <Switch>
+             <Route exact path='/collection' component={() => <Collection collection={localCollection} localCollection={localCollection} addToCollection={addToCollection} removeFromCollection={removeFromCollection} /> } /> 
           </Switch>
 
         </Router>
 			</main>
 
 		</>
+
 	);
 }
 

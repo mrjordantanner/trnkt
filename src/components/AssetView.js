@@ -11,8 +11,6 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 	const [asset, setAsset] = useState(null);
 
 	useEffect(() => {
-		document.body.style.backgroundColor = 'black';
-		document.body.style.color = 'white';
 		if (!asset) {
 			const contract = match.params.contract;
 			const token = match.params.token;
@@ -56,13 +54,13 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 						<li className='flex-row id'>{asset.id}</li>
 					</ul>
 
-					<div class='collection-button wireframe'>
+					<div className='button-container wireframe'>
 						{asset.inCollection ? 
-						<div onClick={remove} className='button-round remove'>-</div> :
+						<div onClick={remove} className='collection-button remove'>Remove from Collection</div> :
 							<div onClick={() => {
 								add();
 								// TODO: toggle 
-							}} className='button-round add'>+</div> 
+							}} className='collection-button add'>Add to Collection</div> 
 						}
 					</div>
 

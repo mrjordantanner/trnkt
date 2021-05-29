@@ -22,7 +22,11 @@ class Api {
     getSingleAsset(contract, token) {
         const url = `https://api.opensea.io/api/v1/asset/${contract}/${token}`;
 
-        return fetch(url)
+        return fetch(url, {
+            headers: {
+                "X-API-KEY": process.env.API_KEY
+            }
+        })
             .then((res) => res.json())
             .then((res) => new Asset(res))
             .catch((error) => {
@@ -35,7 +39,11 @@ class Api {
 
         const url = `${this.urlBase}${ROUTES.assets}?order_direction=${direction}&offset=${offset}&limit=50`;
 
-        return fetch(url)
+        return fetch(url, {
+            headers: {
+                "X-API-KEY": process.env.API_KEY
+            }
+        })
             .then((res) => res.json())
             .then((res) => res.assets.map((asset) => {
                 return new Asset(asset);
