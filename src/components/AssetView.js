@@ -40,21 +40,21 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 	return (
 		//#region [Blue]
 		<>
-			<div className='asset-view-container wireframe'>
+			<div className='asset-view-container'>
 				<AssetImage asset={asset} />
 
-				<div className='asset-properties wireframe'>
+				<div className='asset-properties'>
 					<Name asset={asset} />
-					<h2 className='username wireframe'>{asset.creator}</h2>
-					<p className='description wireframe'>{asset.description}</p>
+					<h2 className='username'>{asset.creator}</h2>
+					<p className='description'>{asset.description}</p>
 
-					<ul className='property-list wireframe'>
+					<ul className='property-list'>
 						<Traits asset={asset} />
 						<Price asset={asset} />
-						<li className='flex-row id'>{asset.id}</li>
+						{/* <li className='flex-row id'>ID: {asset.id}</li> */}
 					</ul>
 
-					<div className='button-container wireframe'>
+					<div className='button-container'>
 						{asset.inCollection ? 
 						<div onClick={remove} className='collection-button remove'>Remove from Collection</div> :
 							<div onClick={() => {
