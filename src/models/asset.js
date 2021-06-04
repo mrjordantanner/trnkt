@@ -91,7 +91,6 @@ class Asset {
         this.creator = getCreator(asset);
         this.price = getPrice(asset);
         this.traits = getTraits(asset);
-        this.inCollection = false;
     }
 
     get valid() {

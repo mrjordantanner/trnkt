@@ -19,7 +19,7 @@ export default function Gallery( { data } ) {
 			<div id='top'></div>
 
 			<div className='gem-background-wrapper'>
-				<img className='gem-background invert' src={diamond} />
+				<img className='gem-background invert' src={diamond} alt='diamond'/>
 			</div>
 
 			<div className='gallery-window'>
@@ -29,7 +29,7 @@ export default function Gallery( { data } ) {
 					})}
 				</div>
 				<footer className='footer'>
-					<a className='button outline' onClick={scrollToTop} >Back to Top</a>
+					<a className='button outline-secondary' onClick={scrollToTop} >Back to Top</a>
 				</footer>
 			</div>
 		</div>

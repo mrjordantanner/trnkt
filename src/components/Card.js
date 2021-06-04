@@ -11,10 +11,12 @@ export default function Card( { asset } ) {
 	return (
 		//#region [Blue]
 		<div className='card'>
+			<div className='blur-bg'></div>
+
 			 <Link to={`/asset/${asset.contractAddress}/${asset.tokenID}`} key={asset.id} className='link'>
 
 				<div className='image'>
-					<img src={asset.thumbnailUrl} alt={'No Thumbnail'} />
+					<img src={asset.thumbnailUrl} alt={''} />
 				</div>
 
 				<div className='details'>

@@ -3,11 +3,12 @@ import AssetImage from './assetProperties/AssetImage';
 import Name from './assetProperties/Name';
 import Price from './assetProperties/Price';
 import Traits from './assetProperties/Traits';
+import CollectionToggleButton from './assetProperties/CollectionToggleButton';
 import Loading from './Loading';
 import { api } from '../App';
 
 // Show route for each individual asset
-export default function AssetView({  match, addToCollection, removeFromCollection }) {
+export default function AssetView({  match, addToCollection, removeFromCollection, localCollection }) {
 	const [asset, setAsset] = useState(null);
 
 	useEffect(() => {
@@ -25,18 +26,6 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 		);
 	}
 
-	function add() {
-		if (!asset.inCollection) {
-			addToCollection(asset);
-			setAsset(asset);
-		}
-	}
-
-	function remove() {
-		removeFromCollection(asset);
-		setAsset(asset);
-	}
-
 	return (
 		//#region [Blue]
 		<>
@@ -51,20 +40,10 @@ export default function AssetView({  match, addToCollection, removeFromCollectio
 					<ul className='property-list'>
 						<Traits asset={asset} />
 						<Price asset={asset} />
-						{/* <li className='flex-row id'>ID: {asset.id}</li> */}
+						<li className='flex-row id'>ID: {asset.id}</li>
 					</ul>
 
-					<div className='button-container'>
-						{asset.inCollection ? 
-						<div onClick={remove} className='collection-button remove'>Remove from Collection</div> :
-							<div onClick={() => {
-								add();
-								// TODO: toggle 
-							}} className='collection-button add'>Add to Collection</div> 
-						}
-					</div>
-
-
+					<CollectionToggleButton asset={asset} localCollection={localCollection} addToCollection={addToCollection} removeFromCollection={removeFromCollection} />
 
 				</div>
 			</div>

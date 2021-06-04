@@ -18,20 +18,17 @@ function App() {
 
   const [data, setData] = useState(null);
   const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(50);
-
   const [collection, setCollection] = useState([localCollection]);
 
   useEffect(() => {
     setData(null);
-    api.getAssets(DIRECTION.desc, offset, limit)
+    api.getAssets(DIRECTION.desc, offset, 50)
     .then(setData)
-    .then(clearLocalCollection())
     .then(loadCollectionData())
     .catch((error) => {
       return <p>{`Error: ${error}`}</p>;
   });
-  }, [offset, limit])
+  }, [offset])
 
   if (!data) {
     return <Loading />
@@ -42,40 +39,22 @@ function App() {
     setOffset(rndOffset);
   }
 
-  // function incrementOffset() {
-  //   const tempOffset = offset + 50;
-  //   setOffset(tempOffset);
-  // }
-
-  // function decrementOffset() {
-  //   const tempOffset = offset - 50;
-  //   setOffset(tempOffset);
-  // }
-
 // Collection 
   function addToCollection(asset) {
-    if (!localCollection.includes(asset)) {
-        asset.inCollection = true;
-        localCollection.push(asset);
-        setCollection(localCollection);
-        writeCollectionData();
-    }
+      localCollection.push(asset);
+      setCollection(localCollection);
+      writeCollectionData();
+      console.log(`${asset.id} added to collection`);
+      console.log(localCollection);
+
   }
 
   function clearCollection() {
-    if (localCollection.length > 0) {
-      localCollection.forEach((asset) => asset.inCollection = false);
-    }
-    localCollection = [];
-    localCollection.length = 0;
-    localStorage.clear()
-    setCollection(localCollection);
+    clearLocalCollection();
+    localStorage.clear();
   }
 
   function clearLocalCollection() {
-    if (localCollection.length > 0) {
-      localCollection.forEach((asset) => asset.inCollection = false);
-    }
     localCollection = [];
     localCollection.length = 0;
     setCollection(localCollection);
@@ -86,6 +65,8 @@ function App() {
   }
 
   function loadCollectionData() {
+    clearLocalCollection();
+
       const collectionString = localStorage.getItem('collection');
       if (!collectionString) {
           return null;
@@ -103,12 +84,13 @@ function App() {
   }
     
   function removeFromCollection(asset) {
-    if (localCollection.includes(asset)) {
-      const index = localCollection.indexOf(asset);
-      localCollection.splice(index, 1);
-      asset.inCollection = false;
-      setCollection(localCollection);
-    }
+    // const index = localCollection.indexOf(asset);
+    // localCollection.splice(index, 1);
+    const filteredCollection = localCollection.filter(a => a.token_id !== asset.token_id)
+    setCollection(filteredCollection);
+    console.log(`${asset.id} removed from collection`);
+    console.log(collection);
+
   }
 
   return (
@@ -130,11 +112,13 @@ function App() {
           </Switch>
 
           <Switch>
-            <Route path='/asset/:contract/:token' component={(routerProps) => <AssetView data={data} match={routerProps.match} addToCollection={addToCollection} removeFromCollection={removeFromCollection} /> } /> 
+            <Route path='/asset/:contract/:token' component={(routerProps) => 
+            <AssetView data={data} match={routerProps.match} addToCollection={addToCollection} removeFromCollection={removeFromCollection} localCollection={localCollection} /> } /> 
            </Switch>
 
            <Switch>
-             <Route exact path='/collection' component={() => <Collection collection={localCollection} localCollection={localCollection} addToCollection={addToCollection} removeFromCollection={removeFromCollection} /> } /> 
+             <Route exact path='/collection' component={() => 
+             <Collection collection={localCollection} addToCollection={addToCollection} removeFromCollection={removeFromCollection} loadCollectionData={loadCollectionData} /> } /> 
           </Switch>
 
         </Router>
