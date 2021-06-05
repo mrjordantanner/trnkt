@@ -4,19 +4,11 @@ import diamond from '../images/diamond.svg';
 import { Link } from 'react-router-dom';
 
 export default function Collection( { collection, removeFromCollection, loadCollectionData } ) {
-	// const collectionWindow = useRef(null);
-	// const scrollToTop = () => {
-	// 	collectionWindow.current.scrollTo({
-	// 	  top: 0,
-	// 	  behavior: "smooth"
-	// 	});
-	//   };
 
 	//region [Violet]
-
     return (
 			<div className='collection-wrapper'>
-				{/* <h2>C O L L E C T I O N</h2> */}
+				<h1 className='header'>C O L L E C T I O N</h1>
 				<div className='gem-background-wrapper'>
 					<img className='gem-background' src={diamond} />
 				</div>
@@ -33,7 +25,7 @@ export default function Collection( { collection, removeFromCollection, loadColl
 								);
 						})
 					) : (
-						<p>Collection is empty.</p>
+						<h2 className='empty'>Collection is empty.</h2>
 					)}
 				</div>
 			</div>

@@ -5,10 +5,8 @@
 }
 
 // Colors
-// $color-primary: #522A83;
 $color-primary: #7f00d3;
 $color-secondary: #E4BD5B;   
-// $color-secondary: #D6C100;
 $color-secondary: gold;
 $color-background: #000000;
 $color-border: cyan;
@@ -157,7 +155,6 @@ h1, h2, h3, h4, h5, h6, p {
     .gem-background {
         display: block;
         width: 100vw;
-        // max-width: 1920px;
         height: 100vh;
         object-fit: contain;
         z-index: -1;
@@ -186,6 +183,7 @@ h1, h2, h3, h4, h5, h6, p {
     height: 70px;
     pointer-events: none;
     z-index: 900;
+    padding-left: 50px;
 
 
     &:hover {
@@ -246,7 +244,7 @@ h1, h2, h3, h4, h5, h6, p {
 .outline-primary {
     height: 36px;
     color: $color-primary;
-    border: $color-primary 2px solid;
+    border: $color-primary 3px solid;
 
     &:hover {
         background: $color-primary;
@@ -257,7 +255,7 @@ h1, h2, h3, h4, h5, h6, p {
 .outline-secondary {
     height: 36px;
     color: $color-secondary;
-    border: $color-secondary 2px solid;
+    border: $color-secondary 3px solid;
 
     &:hover {
         background: $color-secondary;
@@ -265,15 +263,17 @@ h1, h2, h3, h4, h5, h6, p {
     }
 }
 
-// .filled {
-//     height: 40px;
-//     color: black;
-
-//     &:hover {
-//         color: white;
-//     }
-// }
-
+.enter {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    height: 60px;
+    margin: 20px 0 70px 0;
+}
 
 //endregion
 
@@ -352,7 +352,6 @@ h1, h2, h3, h4, h5, h6, p {
 
     &:hover {
         border: white 1px solid;
-        // background:#7f00d362;
         cursor: pointer;
         opacity: 0.5;
         color: white;
@@ -429,7 +428,7 @@ h1, h2, h3, h4, h5, h6, p {
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: $color-primary;
     color: black;
     z-index: 1;
@@ -451,22 +450,23 @@ h1, h2, h3, h4, h5, h6, p {
     .header {
         display: flex;
         flex-direction: column;
-        width:70vw;
-        max-height:400px;
         justify-content: center;
         align-items: center;
-        margin-top: 2vh;
+        width:80vw;
+        padding: 1rem;
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        border-bottom: 3px solid black;
+    }
 
-        .heading {
-            margin-left: 2vw;
-            font-weight: 700;
-            font-size: 5vmax;  
-        }
-
-        ul {
-            display: block;
-        }
-    
+    .empty {
+        display: flex;
+        flex-direction: column;
+        width:90vw;
+        height:60vh;
+        justify-content: center;
+        align-items: center;
     }
     
 
@@ -693,11 +693,6 @@ h1, h2, h3, h4, h5, h6, p {
         font-size: 1.25rem;
     }
 
-    body::-webkit-scrollbar {
-        display: none;
-        width: 0px;
-    }
-
     .button {
         height: 30px; 
         font-size: 0.8rem;
@@ -710,27 +705,15 @@ h1, h2, h3, h4, h5, h6, p {
     } 
 
     .enter {
-        width: 80vw;
+        font-size: 1.25rem;
         height: 50px;
-        font-size: 1.5rem;
-        text-align: center;
+        width: 50vw;
 
     }
 
-    // .fixed-footer {
-    //     display: block;
-    //     position: relative;
-    //     margin: 40px 0 0 0px;
-        
-    //     bottom: 0px;
-    // }
-
     .home-container {
-        max-height: 100vh;
-
         .gem-background-wrapper {
             display: none;
-    
         }
 
         .logo {
@@ -744,23 +727,8 @@ h1, h2, h3, h4, h5, h6, p {
         }
     }
 
-    // Navbar, Buttons, and Links
     .navbar-container {
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100vw;
-        height: 70px;
-        border-bottom: 4px violet solid;
-        // padding: 1rem;
-        z-index: 900;
-
-        &:hover {
-            color: $color-secondary;
-        }
-
-        &:active {
-            opacity: 0.5;
-        }
+        padding-left: 0px; 
 
         .nav-link {
             color: white;
@@ -822,10 +790,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-height: 1366px) {   // 1048px
+@media only screen and (min-width: 768px) and (max-height: 1366px) {  
 
     html, body {
-        border: 2px solid orange;
+        // border: 2px solid orange;
     }
 
     a {
@@ -868,13 +836,19 @@ h1, h2, h3, h4, h5, h6, p {
   and (min-resolution: 192dpi) { 
 
     html, body {
-        border: 2px solid red;
+        // border: 2px solid red;
     }
 
     .gem-background-mobile {
         width: 30vh !important;
        
     } 
+
+    .enter {
+        width: 20vw;
+        height: 60px;
+        margin: 20px 0 70px 0;
+    }
 
     .home-container {
 
@@ -913,7 +887,7 @@ h1, h2, h3, h4, h5, h6, p {
 @media only screen and (min-width: 1921px) { 
 
     html, body {
-        border: 2px solid gray;
+        // border: 2px solid gray;
     }
 
     .home-container {
@@ -937,7 +911,7 @@ h1, h2, h3, h4, h5, h6, p {
 @media only screen and (min-width: 1187px) and (max-width: 1921px) and (max-height: 945px) { 
 
     html, body {
-        border: 2px solid chartreuse;
+        // border: 2px solid chartreuse;
     }
 
     li {
@@ -969,8 +943,6 @@ h1, h2, h3, h4, h5, h6, p {
             padding: 0px 0.5rem;
             font-size: 2.5rem;
         }
-
-
     }
 
     .flex-row {
@@ -1021,10 +993,51 @@ h1, h2, h3, h4, h5, h6, p {
 @media screen and (max-width: 1081px) and (min-height: 1081px) {
 
     html, body {
-        border: 2px solid magenta;
+        // border: 2px solid magenta;
         height: 99vh;
     }
 
+    a {
+        font-size: 1.25rem;
+    }
+
+    .gem-background-mobile {
+        display: block;
+        width: 80vw;
+    }
+
+    .home-container {
+        height: 80vh;
+        justify-content: space-evenly;
+
+        .gem-background-wrapper {
+            display: none;
+        }
+    
+        .logo {
+            font-size: 16rem;
+        }
+        
+        .description {
+            width: 60vw;
+            font-size: 1.5rem;
+            line-height: 2.25rem;
+        }
+    }
+
+    .enter {
+        font-size: 1.75rem;
+        height: 70px;
+        width: 50vw;
+    }
+    
+    .fixed-footer {
+        position: fixed;
+    }
+
+    .collection-wrapper {
+        min-height: 96vh;
+    }
 
     .asset-view-container {
         flex-direction: column;
@@ -1040,7 +1053,7 @@ h1, h2, h3, h4, h5, h6, p {
                 object-fit: contain;
             }
         }
-    
+
         .asset-properties {
             align-items: center;
             width: 100%;
@@ -1070,14 +1083,7 @@ h1, h2, h3, h4, h5, h6, p {
                 width: 80%;
             }
 
-            .collection-button {
-                width: 80%;
-                align-items: center;
-            }
         }
     }
-
  }
-
-
  // endregion 

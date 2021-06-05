@@ -44,16 +44,16 @@ function App() {
       localCollection.push(asset);
       setCollection(localCollection);
       writeCollectionData();
-      console.log(`${asset.id} added to collection`);
-      console.log(localCollection);
-
   }
 
   function clearCollection() {
-    clearLocalCollection();
-    localStorage.clear();
-  }
-
+      const confirmation = window.confirm('Really delete your entire Collection?'); 
+      if (confirmation) {
+        clearLocalCollection();
+        localStorage.clear();
+      }
+    }
+    
   function clearLocalCollection() {
     localCollection = [];
     localCollection.length = 0;
@@ -72,9 +72,9 @@ function App() {
           return null;
       }
         const collectionObj = JSON.parse(collectionString);
-        if (!collectionObj) {
-          return null;
-      }
+				if (!collectionObj) {
+					return null;
+				}
         collectionObj.collection.collection.forEach((asset) => {
         if (!localCollection.includes(asset)) {
           localCollection.push(asset);
@@ -84,13 +84,10 @@ function App() {
   }
     
   function removeFromCollection(asset) {
-    // const index = localCollection.indexOf(asset);
-    // localCollection.splice(index, 1);
-    const filteredCollection = localCollection.filter(a => a.token_id !== asset.token_id)
-    setCollection(filteredCollection);
-    console.log(`${asset.id} removed from collection`);
-    console.log(collection);
-
+    const index = localCollection.indexOf(asset);
+    localCollection.splice(index, 1);
+    setCollection(localCollection);
+    writeCollectionData();
   }
 
   return (

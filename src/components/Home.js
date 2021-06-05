@@ -15,10 +15,10 @@ export default function Home( { randomizeOffset } ) {
 
 					<img className='gem-background-mobile invert' src={diamond} />
 
-					<h3 className='description'>
+					<p className='description'>
 						Explore a wide variety of crypto artwork in the form of <a href='https://en.wikipedia.org/wiki/Non-fungible_token' target='_blank' ><strong>NFT's.  </strong></a>
 						Use the Explore button to randomly display NFT's from the Opensea API, click or tap to view them in detail, and add to your Collection of favorites for later viewing. <br></br>
-					</h3>
+					</p>
 					<Link to='/explore'>
 						<div onClick={randomizeOffset} className='button outline-secondary enter'>
 							E X P L O R E

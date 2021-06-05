@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 
 export default function CollectionToggleButton( { addToCollection, removeFromCollection, asset, localCollection } ) {
 
-    const [collectionState, setCollectionState] = useState(localCollection.includes(asset));
+    useEffect(() => {
+        const includesAsset = localCollection.some(a => a.id === asset.id);
+        setCollectionState(includesAsset);
+    }, [])
 
-    console.log(asset);
+    const [collectionState, setCollectionState] = useState(localCollection.includes(asset));
 
     return (
         <div className='button-container'>
