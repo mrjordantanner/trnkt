@@ -8,16 +8,19 @@ export default function Home( { randomizeOffset } ) {
     return (
 			<div>
 				<div className='home-container'>
-					<div className='gem-background-wrapper'>
+					{/* <div className='gem-background-wrapper'>
 						<img className='gem-background invert' src={diamond} />
-					</div>
-					<div className='logo'>TRNKT</div>
+					</div> */}
 
-					<img className='gem-background-mobile invert' src={diamond} />
+					<img className='gem-background-float invert' src={diamond} />
+
+					<div className='logo text-outline'>TRNKT</div>
+
+
 
 					<p className='description'>
-						Explore a wide variety of crypto artwork in the form of <a href='https://en.wikipedia.org/wiki/Non-fungible_token' target='_blank' ><strong>NFT's.  </strong></a>
-						Use the Explore button to randomly display NFT's from the Opensea API, click or tap to view them in detail, and add to your Collection of favorites for later viewing. <br></br>
+						Discover a wide variety of crypto <a href='https://en.wikipedia.org/wiki/Non-fungible_token' target='_blank' ><strong>NFT</strong></a> artwork.
+						Use the Explore button to display random NFT's from the Opensea API, click or tap to view them in detail, and save to your Collection for later viewing. <br></br>
 					</p>
 					<Link to='/explore'>
 						<div onClick={randomizeOffset} className='button outline-secondary enter'>

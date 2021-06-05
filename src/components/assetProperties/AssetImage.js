@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function AssetImage( { asset } ) {
 
-    if (!asset.imgUrl) {
+    if (!asset.imgUrl || !asset.thumbnailUrl) {
         return <p>No Image</p>
     }
 
