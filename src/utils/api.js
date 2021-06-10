@@ -23,6 +23,7 @@ class Api {
         const url = `https://api.opensea.io/api/v1/asset/${contract}/${token}`;
 
         return fetch(url, {
+            // method: 'GET',
             headers: {
                 "X-API-KEY": process.env.API_KEY
             }

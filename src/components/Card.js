@@ -22,7 +22,7 @@ export default function Card( { asset } ) {
 				<div className='details'>
 					<h2 className='name'>{asset.name}</h2>
 					<p className='username'>{asset.creator}</p>
-					{/* <p className='id'>{asset.id}</p> */}
+					<p className='id'>{asset.id}</p>
 				</div>
 			</Link>
 		</div>

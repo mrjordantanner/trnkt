@@ -44,6 +44,7 @@ function App() {
       localCollection.push(asset);
       setCollection(localCollection);
       writeCollectionData();
+      console.log(`added: ${asset.id}`)
   }
 
   function clearCollection() {
@@ -88,6 +89,7 @@ function App() {
     localCollection.splice(index, 1);
     setCollection(localCollection);
     writeCollectionData();
+    console.log(`removed: ${asset.id}`)
   }
 
   return (

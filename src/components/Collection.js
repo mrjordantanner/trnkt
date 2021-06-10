@@ -20,7 +20,6 @@ export default function Collection( { collection, removeFromCollection, loadColl
 									<Card
 										asset={asset}
 										key={asset.id}
-										removeFromCollection={removeFromCollection}
 									/>
 								);
 						})

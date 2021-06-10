@@ -8,16 +8,8 @@ export default function Home( { randomizeOffset } ) {
     return (
 			<div>
 				<div className='home-container'>
-					{/* <div className='gem-background-wrapper'>
-						<img className='gem-background invert' src={diamond} />
-					</div> */}
-
 					<img className='gem-background-float invert' src={diamond} />
-
 					<div className='logo text-outline'>TRNKT</div>
-
-
-
 					<p className='description'>
 						Discover a wide variety of crypto <a href='https://en.wikipedia.org/wiki/Non-fungible_token' target='_blank' ><strong>NFT</strong></a> artwork.
 						Use the Explore button to display random NFT's from the Opensea API, click or tap to view them in detail, and save to your Collection for later viewing. <br></br>
@@ -28,8 +20,8 @@ export default function Home( { randomizeOffset } ) {
 						</div>
 					</Link>
 					<footer className='fixed-footer'>
-					    <p>Copyright &copy; 2021 -- <a href='https://github.com/mrjordantanner' target='_blank'><strong>Jordan Smith Digital</strong></a></p>
 						<p>Powered by <a href='https://opensea.io/' target='_blank'><strong>Opensea.io</strong></a></p>
+					    <p>Copyright &copy; 2021 -- <a href='https://github.com/mrjordantanner' target='_blank'><strong>Jordan Smith Digital</strong></a></p>
 					</footer>
 				</div>
 			</div>

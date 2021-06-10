@@ -9,6 +9,7 @@ import { api } from '../App';
 
 // Show route for each individual asset
 export default function AssetView({ match, addToCollection, removeFromCollection, localCollection }) {
+	
 	const [asset, setAsset] = useState(null);
 
 	useEffect(() => {

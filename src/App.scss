@@ -40,7 +40,6 @@
 }
 
 // Colors
-// $color-primary: #7f00d3;
 $color-primary: #9900ff;
 $color-secondary: gold;
 $color-tertiary: white;
@@ -240,15 +239,6 @@ h1, h2, h3, h4, h5, h6, p {
     pointer-events: none;
     z-index: 900;
     padding-left: 50px;
-
-
-    &:hover {
-        color: $color-secondary;
-    }
-
-    &:active {
-        opacity: 0.5;
-    }
 
     .nav-link {
         font-family: 'Akzidensk', sans-serif;
