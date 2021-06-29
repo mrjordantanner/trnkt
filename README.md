@@ -2,6 +2,7 @@
 # TRNKT
 ## TRNKT _(Trinket)_ helps users discover a wide variety of crypto NFT artwork! 
 ## https://trnkt.herokuapp.com/
+[Try it Here](https://trnkt.herokuapp.com/)
 ![TRNKT2 0-Landing](https://user-images.githubusercontent.com/50030252/120882710-279cee00-c59f-11eb-966c-a38183ca4571.gif)
 ## Basics
 - Use the Explore button to display randomly selected NFT's from the Opensea API. 
